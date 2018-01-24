@@ -14,15 +14,15 @@ PS1='[\u@\h \W]\$ '
 export XENVIRONMENT="~/.Xresources"
 export STARDICT_DATA_DIR="~/.stardict"
 
-alias cal="cal 2017"
-alias cal8="/usr/bin/cal 2018"
+alias cal="cal 2018"
+alias cal9="/usr/bin/cal 2019"
 alias vifm="vifmLaunch"
 alias pdflatexd="pdflatex -draftmode"
 #alias hg="history -a && hg.py"
 alias hg="source ~/scripts/hgh"
 alias ls="ls --color=auto"
 alias hello="echo hello!"
-alias la="ls -lrt --color=auto"
+alias la="ls -lrta --color=auto"
 alias rm="rm -rf"
 alias cp="cp -r"
 alias py="python2"
@@ -36,7 +36,8 @@ alias mvf=". moveAndFollow"
 alias date='date "+DATE: %m/%d/%y%nTIME: %H:%M:%S"'
 alias def="sdcv"
 alias grep="grep -i --color=always"
-alias sb="source ~/.bashrc"
+alias bashrc="source ~/.bashrc"
+alias pic="gnome-screenshot -a -f $(mktemp -u ~/gscreenshot.XXXX.png)"
 
 #auto completion
 complete -f -X '!*.pdf' evince
@@ -51,6 +52,7 @@ alias umt1="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int01.physics.lsa.umich.edu"
 alias umt2="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int02.physics.lsa.umich.edu"
 alias umt3="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int03.physics.lsa.umich.edu"
 alias umt4="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int04.physics.lsa.umich.edu"
+alias umt5="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int05.physics.lsa.umich.edu"
 alias hg8i="echo gpjuik+@; ssh -p 21098 phuwus@server38.web-hosting.com"
 
 # modify path 

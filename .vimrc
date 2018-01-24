@@ -23,6 +23,10 @@ nnoremap <Space> @q
 nnoremap / H/
 set tabstop=2
 
+"clean blank lines
+command! Clean :%s/^\s*$//g
+
+
 "leader
 let mapleader = "-"
 let maplocalleader = "="
@@ -52,7 +56,7 @@ augroup testgroup
   "tex
   autocmd FileType tex setlocal wrap
   autocmd FileType tex setlocal spell
-  autocmd FileType tex iabbrev 1pic \includegraphics[width=0.5\textwidth]{}<left>
+  autocmd FileType tex iabbrev 1pic \includegraphics[width=1\textwidth]{}<left>
   autocmd FileType tex iabbrev 1table \resizebox{0.7\textwidth}{!}{\Huge\begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\end{tabular}}<esc><up>i<space>
   autocmd FileType tex iabbrev 1item \begin{itemize}<cr>  \item<cr>\end{itemize}<esc><<<up>A
   autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
