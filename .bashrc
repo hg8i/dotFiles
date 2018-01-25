@@ -14,6 +14,7 @@ PS1='[\u@\h \W]\$ '
 export XENVIRONMENT="~/.Xresources"
 export STARDICT_DATA_DIR="~/.stardict"
 
+alias gcd=". ~/scripts/gcd.sh"
 alias cal="cal 2018"
 alias cal9="/usr/bin/cal 2019"
 alias vifm="vifmLaunch"

@@ -38,6 +38,7 @@ augroup comments
   autocmd FileType cong setlocal commentstring=#\ %s
   autocmd FileType tex setlocal commentstring=%\ %s
   autocmd FileType sh setlocal commentstring=#\ %s
+  autocmd FileType vim setlocal commentstring=\"\ %s
 augroup END
 
 "autocommands
@@ -81,6 +82,9 @@ onoremap n{ :<c-u>execute "normal! /{\r:nohlsearch\rlvi{"<cr>
 onoremap n( :<c-u>execute "normal! /(\r:nohlsearch\rlvi("<cr>
 "for latex, change in $
 onoremap i$ :<c-u>normal! T$vt$"<cr>
+
+"map to replace word with yanked, then restore clipboard
+nnoremap <leader>w :<c-u>let @t=getreg('"')<cr>viw"dd"tP:<c-u>let @"=getreg('t')<cr>
 
 "shortcuts
 "nnoremap <leader>_ ddp
