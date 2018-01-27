@@ -39,6 +39,7 @@ augroup comments
   autocmd FileType tex setlocal commentstring=%\ %s
   autocmd FileType sh setlocal commentstring=#\ %s
   autocmd FileType vim setlocal commentstring=\"\ %s
+  autocmd FileType conf setlocal commentstring=#\ %s
 augroup END
 
 "autocommands
@@ -62,7 +63,9 @@ augroup testgroup
   autocmd FileType tex iabbrev 1item \begin{itemize}<cr>  \item<cr>\end{itemize}<esc><<<up>A
   autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
   autocmd FileType tex iabbrev 1col \begin{columns}[t]<cr>\column{.5\textwidth}\centering<cr>\end{columns} <esc><up>$ci
-  autocmd FileType tex iabbrev eeta $\|\eta\|$<left>
+  autocmd FileType tex iabbrev 1resize \resizebox{0.5\textwidth}{!}{%<cr>\vbox{<cr>}<cr>} <esc><up>$ci
+  autocmd FileType tex iabbrev 1color {\color{blue}}<esc>i
+  autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
   autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
   autocmd BufNewFile,BufRead *.html setlocal nowrap
   autocmd FileType text setlocal wrap
@@ -128,6 +131,7 @@ nnoremap k gk
 set relativenumber
 "nnoremap <C-P> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? \| :call ToggleMouse()<CR><CR>
 nnoremap <C-P> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? <CR><CR>
+nnoremap <F10> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? <CR><CR>
 
 
 augroup NO_CURSOR_MOVE_ON_SELECTION
