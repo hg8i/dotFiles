@@ -11,6 +11,11 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
+#source local files
+if [ -f ~/.bashlocal ]; then
+	source ~/.bashlocal
+fi
+
 export XENVIRONMENT="~/.Xresources"
 export STARDICT_DATA_DIR="~/.stardict-1"
 
