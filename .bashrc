@@ -12,7 +12,7 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export XENVIRONMENT="~/.Xresources"
-export STARDICT_DATA_DIR="~/.stardict"
+export STARDICT_DATA_DIR="~/.stardict-1"
 
 alias gcd=". ~/scripts/gcd.sh"
 alias cal="cal 2018"
@@ -31,7 +31,9 @@ alias py2="python2"
 alias py3="python3"
 alias p="ping www.google.com"
 alias bell="echo $'\a'"
-alias targz="tar -zxvf"
+alias targa="tar -zxaf"
+alias root="root -l"
+
 alias cpf=". copyAndFollow"
 alias mvf=". moveAndFollow"
 alias date='date "+DATE: %m/%d/%y%nTIME: %H:%M:%S"'
@@ -59,6 +61,9 @@ alias hg8i="echo gpjuik+@; ssh -p 21098 phuwus@server38.web-hosting.com"
 # modify path 
 PATH="/home/prime/scripts:${PATH}"
 PATH="/home/prime/scripts/functionButtons:${PATH}"
+
+#unfreeze ctrl-s
+stty -ixon
 	
 HISTSIZE=99999
 HISTFILESIZE=9999

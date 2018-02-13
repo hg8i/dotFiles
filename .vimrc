@@ -62,10 +62,12 @@ augroup testgroup
   autocmd FileType tex iabbrev 1table \resizebox{0.7\textwidth}{!}{\Huge\begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\end{tabular}}<esc><up>i<space>
   autocmd FileType tex iabbrev 1item \begin{itemize}<cr>  \item<cr>\end{itemize}<esc><<<up>A
   autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
-  autocmd FileType tex iabbrev 1col \begin{columns}[t]<cr>\column{.5\textwidth}\centering<cr>\end{columns} <esc><up>$ci
-  autocmd FileType tex iabbrev 1resize \resizebox{0.5\textwidth}{!}{%<cr>\vbox{<cr>}<cr>} <esc><up>$ci
-  autocmd FileType tex iabbrev 1color {\color{blue}}<esc>i
+  autocmd FileType tex iabbrev 1col \begin{columns}<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>$ci
+  autocmd FileType tex iabbrev 1resize \resizebox{0.9\textheight}{!}{\vbox{%start of resize box<cr>}}%end of resize box <esc><up>$ci
+  autocmd FileType tex iabbrev 1blu {\color{blue}}<esc>i
+  autocmd FileType tex iabbrev 1red {\color{red}}<esc>i
   autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
+  autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
   autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
   autocmd BufNewFile,BufRead *.html setlocal nowrap
   autocmd FileType text setlocal wrap
