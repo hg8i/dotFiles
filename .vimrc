@@ -38,6 +38,8 @@ augroup comments
   autocmd FileType cong setlocal commentstring=#\ %s
   autocmd FileType tex setlocal commentstring=%\ %s
   autocmd FileType sh setlocal commentstring=#\ %s
+  autocmd FileType vim setlocal commentstring=\"\ %s
+  autocmd FileType conf setlocal commentstring=#\ %s
 augroup END
 
 "autocommands
@@ -60,8 +62,12 @@ augroup testgroup
   autocmd FileType tex iabbrev 1table \resizebox{0.7\textwidth}{!}{\Huge\begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\end{tabular}}<esc><up>i<space>
   autocmd FileType tex iabbrev 1item \begin{itemize}<cr>  \item<cr>\end{itemize}<esc><<<up>A
   autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
-  autocmd FileType tex iabbrev 1col \begin{columns}[t]<cr>\column{.5\textwidth}\centering<cr>\end{columns} <esc><up>$ci
-  autocmd FileType tex iabbrev eeta $\|\eta\|$<left>
+  autocmd FileType tex iabbrev 1col \begin{columns}<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>$ci
+  autocmd FileType tex iabbrev 1resize \resizebox{0.9\textheight}{!}{\vbox{%start of resize box<cr>}}%end of resize box <esc><up>$ci
+  autocmd FileType tex iabbrev 1blu {\color{blue}}<esc>i
+  autocmd FileType tex iabbrev 1red {\color{red}}<esc>i
+  autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
+  autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
   autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
   autocmd BufNewFile,BufRead *.html setlocal nowrap
   autocmd FileType text setlocal wrap
@@ -81,6 +87,9 @@ onoremap n{ :<c-u>execute "normal! /{\r:nohlsearch\rlvi{"<cr>
 onoremap n( :<c-u>execute "normal! /(\r:nohlsearch\rlvi("<cr>
 "for latex, change in $
 onoremap i$ :<c-u>normal! T$vt$"<cr>
+
+"map to replace word with yanked, then restore clipboard
+nnoremap <leader>w :<c-u>let @t=getreg('"')<cr>viw"dd"tP:<c-u>let @"=getreg('t')<cr>
 
 "shortcuts
 "nnoremap <leader>_ ddp
@@ -124,6 +133,7 @@ nnoremap k gk
 set relativenumber
 "nnoremap <C-P> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? \| :call ToggleMouse()<CR><CR>
 nnoremap <C-P> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? <CR><CR>
+nnoremap <F10> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? <CR><CR>
 
 
 augroup NO_CURSOR_MOVE_ON_SELECTION
