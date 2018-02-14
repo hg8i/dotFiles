@@ -40,6 +40,7 @@ augroup comments
   autocmd FileType sh setlocal commentstring=#\ %s
   autocmd FileType vim setlocal commentstring=\"\ %s
   autocmd FileType conf setlocal commentstring=#\ %s
+  autocmd FileType cpp setlocal commentstring=//\ %s
 augroup END
 
 "autocommands
