@@ -38,6 +38,7 @@ alias p="ping www.google.com"
 alias bell="echo $'\a'"
 alias targa="tar -zxaf"
 alias root="root -l"
+alias ll="ls -lrt"
 
 alias cpf=". copyAndFollow"
 alias mvf=". moveAndFollow"
