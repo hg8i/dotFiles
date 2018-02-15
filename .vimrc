@@ -26,6 +26,10 @@ set tabstop=2
 "clean blank lines
 command! Clean :%s/^\s*$//g
 
+"if launch without filename, enter insert mode
+if @% == "" 
+	:startinsert
+endif
 
 "leader
 let mapleader = "-"
