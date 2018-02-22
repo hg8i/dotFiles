@@ -96,6 +96,10 @@ onoremap i$ :<c-u>normal! T$vt$"<cr>
 "map to replace word with yanked, then restore clipboard
 nnoremap <leader>w :<c-u>let @t=getreg('"')<cr>viw"dd"tP:<c-u>let @"=getreg('t')<cr>
 
+"remove highlight
+nnoremap <leader>hh :/^[.\+]<cr>
+
+
 "shortcuts
 "nnoremap <leader>_ ddp
 "nnoremap <leader>- ddkP
