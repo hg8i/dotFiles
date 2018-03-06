@@ -20,6 +20,7 @@ export XENVIRONMENT="~/.Xresources"
 export STARDICT_DATA_DIR="~/.stardict-1"
 
 alias gcd=". ~/scripts/gcd.sh"
+alias cd="cd -P"
 alias cal="cal 2018"
 alias cal9="/usr/bin/cal 2019"
 alias vifm="vifmLaunch"
