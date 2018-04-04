@@ -26,6 +26,8 @@ set tabstop=2
 "clean blank lines
 command! Clean :%s/^\s*$//g
 
+vnoremap // y/<C-R>"<CR>
+
 "if launch without filename, enter insert mode
 if @% == "" 
 	:startinsert
