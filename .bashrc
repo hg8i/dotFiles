@@ -47,7 +47,7 @@ alias date='date "+DATE: %m/%d/%y%nTIME: %H:%M:%S"'
 alias def="sdcv"
 alias grep="grep -i --color=always"
 alias bashrc="source ~/.bashrc"
-alias pic="gnome-screenshot -a -f $(mktemp -u ~/gscreenshot.XXXX.png)"
+alias pic="gnome-screenshot -a -f $(mktemp -u /tmp/gscreenshot.XXXX.png)"
 
 #auto completion
 complete -f -X '!*.pdf' evince
