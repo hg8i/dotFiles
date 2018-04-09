@@ -75,6 +75,7 @@ augroup testgroup
   autocmd FileType tex iabbrev 1red {\color{red}}<esc>i
   autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
   autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
+  autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
   autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
   autocmd BufNewFile,BufRead *.html setlocal nowrap
   autocmd FileType text setlocal wrap
