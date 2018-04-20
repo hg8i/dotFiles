@@ -150,8 +150,8 @@ nnoremap j gj
 nnoremap k gk
 set relativenumber
 "nnoremap <C-P> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? \| :call ToggleMouse()<CR><CR>
-nnoremap <C-P> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? \| :set wrap wrap?<CR><CR>
-nnoremap <F10> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? \| :set wrap wrap?<CR><CR>
+nnoremap <C-P> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? \| :set invwrap wrap?<CR><CR>
+nnoremap <F10> :set invpaste paste? \| :set invnumber number? \| :set invrelativenumber relativenumber? \| :set invwrap wrap?<CR><CR>
 
 
 augroup NO_CURSOR_MOVE_ON_SELECTION
