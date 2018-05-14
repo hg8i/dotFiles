@@ -40,6 +40,7 @@ alias bell="echo $'\a'"
 alias targa="tar -zxaf"
 alias root="root -l"
 alias ll="ls -lrt"
+alias ls1="ls -1"
 
 alias cpf=". copyAndFollow"
 alias mvf=". moveAndFollow"
@@ -48,6 +49,7 @@ alias def="sdcv"
 alias grep="grep -i --color=always"
 alias bashrc="source ~/.bashrc"
 alias pic="gnome-screenshot -a -f $(mktemp -u /tmp/gscreenshot.XXXX.png)"
+alias pic1="gnome-screenshot -a -f $(mktemp -u ~/gscreenshot.XXXX.png)"
 
 #auto completion
 complete -f -X '!*.pdf' evince
