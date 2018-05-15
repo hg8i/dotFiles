@@ -41,6 +41,7 @@ nnoremap <C-_> gcc
 augroup comments
   autocmd!
   autocmd FileType python setlocal commentstring=#\ %s
+  autocmd FileType make setlocal commentstring=#\ %s
   autocmd FileType cong setlocal commentstring=#\ %s
   autocmd FileType tex setlocal commentstring=%\ %s
   autocmd FileType sh setlocal commentstring=#\ %s
@@ -71,6 +72,7 @@ augroup testgroup
   autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
   autocmd FileType tex iabbrev 1col \begin{columns}<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>
   autocmd FileType tex iabbrev 1resize \resizebox{0.9\textheight}{!}{\vbox{%start of resize box<cr>}}%end of resize box <esc><up>$ci
+  autocmd FileType tex iabbrev 1scale \scalebox{0.8}{\begin{minipage}{1.20\textwidth} % start of scalebox <cr>\end{minipage}} % stop of scalebox
   autocmd FileType tex iabbrev 1blu {\color{blue}}<esc>i
   autocmd FileType tex iabbrev 1red {\color{red}}<esc>i
   autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
