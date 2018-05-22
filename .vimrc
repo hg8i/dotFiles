@@ -73,14 +73,17 @@ augroup testgroup
   autocmd FileType tex iabbrev 1col \begin{columns}<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>
   autocmd FileType tex iabbrev 1resize \resizebox{0.9\textheight}{!}{\vbox{%start of resize box<cr>}}%end of resize box <esc><up>$ci
   autocmd FileType tex iabbrev 1scale \scalebox{0.8}{\begin{minipage}{1.20\textwidth} % start of scalebox <cr>\end{minipage}} % stop of scalebox
-  autocmd FileType tex iabbrev 1blu {\color{blue}}<esc>i
-  autocmd FileType tex iabbrev 1red {\color{red}}<esc>i
+  autocmd FileType tex iabbrev 1cb {\color{blue}}<esc>i
+  autocmd FileType tex iabbrev 1cg {\color{green}}<esc>i
+  autocmd FileType tex iabbrev 1cr {\color{red}}<esc>i
+  autocmd FileType tex iabbrev 1cy {\color{yello}}<esc>i
+  autocmd FileType tex iabbrev 1co {\color{orange}}<esc>i
   autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
   autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
   autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
   autocmd FileType tex iabbrev 1draw \begin{tikzpicture}[remember picture,overlay]\end{tikzpicture}% use 1trect, 1tcirc, 1tnode, 1tpath<esc>$F\i
-  autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (1cm,4cm)rectangle(4cm,3.7cm);
-  autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (2.5cm,0.8cm)circle(0.3cm);
+  autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (0.5\textwidth,0.5\textheight)rectangle(4cm,3.7cm);
+  autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (0.5\textwidth,0.5\textheight)circle(0.3cm);
   autocmd FileType tex iabbrev 1tpath \draw[->, red,ultra thick] (A) edge (B);
   autocmd FileType tex iabbrev 1tnode \node (A) at (0.5\textwidth,0.5\textheight) {};
 
