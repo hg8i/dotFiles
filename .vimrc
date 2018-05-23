@@ -22,6 +22,8 @@ set nowrap
 nnoremap <Space> @q
 nnoremap / H/
 set tabstop=2
+" remap 0 to be faster
+nnoremap 0 ll0
 
 "clean blank lines
 command! Clean :%s/^\s*$//g | :normal <C-O>
@@ -81,11 +83,11 @@ augroup testgroup
   autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
   autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
   autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
-  autocmd FileType tex iabbrev 1draw \begin{tikzpicture}[remember picture,overlay]\end{tikzpicture}% use 1trect, 1tcirc, 1tnode, 1tpath<esc>$F\i
+  autocmd FileType tex iabbrev 1draw \begin{tikzpicture}[remember picture,overlay]\end{tikzpicture}% use 1trect, 1tcirc, 1tnode, 1tpath, options: [red, rotate=90, fill=green, rounded corners=2pt]<esc>$F\i
   autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (0.5\textwidth,0.5\textheight)rectangle(4cm,3.7cm);
   autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (0.5\textwidth,0.5\textheight)circle(0.3cm);
   autocmd FileType tex iabbrev 1tpath \draw[->, red,ultra thick] (A) edge (B);
-  autocmd FileType tex iabbrev 1tnode \node (A) at (0.5\textwidth,0.5\textheight) {};
+  autocmd FileType tex iabbrev 1tnode \node (A) at (0.5\textwidth,0.5\textheight) {}; 
 
 
   autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
