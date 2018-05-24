@@ -52,6 +52,39 @@ augroup comments
   autocmd FileType cpp setlocal commentstring=//\ %s
 augroup END
 
+" ####################### python 3 print
+augroup PYTHON 
+	autocmd!
+	" autocmd FileType python let b:pythonThreePrintOn=1
+	autocmd BufRead,BufNewFile *.py3 setfiletype python
+	autocmd InsertLeave *py3 call PythonThreePrint() 
+augroup END
+
+fun! PythonThreePrint()
+	" update print statement to python 3
+	" regex to match python2 print statements: ^\s*print\( (\|(\|\a\)\@!
+
+	" if line under cursor has python2 style print
+	if line =~# '^\s*print\( (\|(\|\a\)\@!'
+		" record current cursor pos
+		let curCol=col(".")
+		let curRow=line(".")
+		let char=matchstr(getline('.'), '\%' . col('.') . 'c.')
+		" get line under cursor to buffer z
+		let line = getline('.')
+		" wrap print in parens ()
+		execute "normal! ^ftl"
+		execute "normal! r(g_a)"
+		call cursor(curRow,curCol+1)
+		return 1
+	endif
+	return 0
+endfun
+" ####################### python 3 print
+
+
+
+
 "autocommands
 augroup testgroup
   autocmd!
@@ -88,6 +121,7 @@ augroup testgroup
   autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (0.5\textwidth,0.5\textheight)circle(0.3cm);
   autocmd FileType tex iabbrev 1tpath \draw[->, red,ultra thick] (A) edge (B);
   autocmd FileType tex iabbrev 1tnode \node (A) at (0.5\textwidth,0.5\textheight) {}; 
+  " autocmd FileType python iabbrev pprint print()<esc>ha
 
 
   autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
