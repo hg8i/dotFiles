@@ -39,7 +39,7 @@ alias p="ping www.google.com"
 alias bell="echo $'\a'"
 alias targa="tar -zxaf"
 alias root="root -l"
-alias ll="ls -lrt"
+# alias ll="ls -lrt"
 alias ls1="ls -1"
 
 alias cpf=". copyAndFollow"
