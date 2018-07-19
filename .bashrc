@@ -51,7 +51,7 @@ alias def="sdcv"
 alias grep="grep -i --color=always"
 alias bashrc="source ~/.bashrc"
 alias pic="gnome-screenshot -a -f $(mktemp -u /tmp/gscreenshot.XXXX.png)"
-alias pic1="gnome-screenshot -a -f $(mktemp -u ~/gscreenshot.XXXX.png)"
+alias pic1="gnome-screenshot -a -f"
 
 #auto completion
 complete -f -X '!*.pdf' evince
@@ -78,3 +78,7 @@ stty -ixon
 	
 HISTSIZE=99999
 HISTFILESIZE=9999
+
+# colorful prompt
+# export PS1="[\u@\h \W]\$" # original
+export PS1="[\e[1;34m\W\e[m]\$ "
