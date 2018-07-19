@@ -13,10 +13,6 @@ unalias -a
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-#source local files
-if [ -f ~/.bashlocal ]; then
-	source ~/.bashlocal
-fi
 
 export XENVIRONMENT="~/.Xresources"
 export STARDICT_DATA_DIR="~/.stardict-1"
@@ -81,4 +77,9 @@ HISTFILESIZE=9999
 
 # colorful prompt
 # export PS1="[\u@\h \W]\$" # original
-export PS1="[\e[1;34m\W\e[m]\$ "
+export PS1="[\e[1;31m\u@\h \e[1;34m\W\e[m]\$ "
+
+#source local files (should come at end to allow over-ride)
+if [ -f ~/.bashlocal ]; then
+	source ~/.bashlocal
+fi
