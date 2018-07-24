@@ -76,8 +76,9 @@ HISTSIZE=99999
 HISTFILESIZE=9999
 
 # colorful prompt
-# export PS1="[\u@\h \W]\$" # original
-export PS1="[\e[1;31m\u@\h \e[1;34m\W\e[m]\$ "
+export PS1="[\u@\h \W]\$" # original
+export PS1="[\[\033[1;34m\]\u@\h\W\[\033[0m\]]$ "
+
 
 #source local files (should come at end to allow over-ride)
 if [ -f ~/.bashlocal ]; then
