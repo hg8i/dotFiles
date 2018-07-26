@@ -1,5 +1,9 @@
 syntax on
 
+" Change spelling underline color
+hi clear SpellBad
+hi SpellBad cterm=underline ctermbg=8
+
 set runtimepath^=~/.vim/
 
 imap <Insert> <Nop>
@@ -23,7 +27,7 @@ nnoremap <Space> @q
 nnoremap / H/
 set tabstop=2
 " remap 0 to be faster
-nnoremap 0 ll0
+nnoremap 0 hhll0
 
 "clean blank lines
 command! Clean :%s/^\s*$//g | :normal <C-O>
@@ -65,13 +69,14 @@ fun! PythonThreePrint()
 	" regex to match python2 print statements: ^\s*print\( (\|(\|\a\)\@!
 
 	" if line under cursor has python2 style print
+	let line = getline('.')
 	if line =~# '^\s*print\( (\|(\|\a\)\@!'
 		" record current cursor pos
-		let curCol=col(".")
-		let curRow=line(".")
-		let char=matchstr(getline('.'), '\%' . col('.') . 'c.')
+		let curCol=col(".") 
+		let curRow=line(".") 
+		" let char=matchstr(getline('.'), '\%' . col('.') . 'c.') " not needed
 		" get line under cursor to buffer z
-		let line = getline('.')
+		" let line = getline('.')
 		" wrap print in parens ()
 		execute "normal! ^ftl"
 		execute "normal! r(g_a)"
@@ -111,16 +116,21 @@ augroup testgroup
   autocmd FileType tex iabbrev 1cb {\color{blue}}<esc>i
   autocmd FileType tex iabbrev 1cg {\color{green}}<esc>i
   autocmd FileType tex iabbrev 1cr {\color{red}}<esc>i
-  autocmd FileType tex iabbrev 1cy {\color{yello}}<esc>i
+  autocmd FileType tex iabbrev 1cy {\color{yellow}}<esc>i
   autocmd FileType tex iabbrev 1co {\color{orange}}<esc>i
+  autocmd FileType tex iabbrev fb1 $fb-1$
   autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
   autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
   autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
-  autocmd FileType tex iabbrev 1draw \begin{tikzpicture}[remember picture,overlay]\end{tikzpicture}% use 1trect, 1tcirc, 1tnode, 1tpath, options: [red, rotate=90, fill=green, rounded corners=2pt]<esc>$F\i
+  autocmd FileType tex iabbrev 1draw \begin{tikzpicture}[remember picture,overlay]\end{tikzpicture}% use 1trect, 1tcirc, 1tnode, 1tpath, options: [red, rotate=90, fill=green, rounded corners=2pt], \draw [->] (A) edge (B) <esc>$F\i
   autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (0.5\textwidth,0.5\textheight)rectangle(4cm,3.7cm);
   autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (0.5\textwidth,0.5\textheight)circle(0.3cm);
   autocmd FileType tex iabbrev 1tpath \draw[->, red,ultra thick] (A) edge (B);
   autocmd FileType tex iabbrev 1tnode \node (A) at (0.5\textwidth,0.5\textheight) {}; 
+  autocmd FileType tex iabbrev 1box \cfbox{red}{}<left>
+  autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(0.50\paperwidth,0.50\paperheight)<cr>\end{textblock*}
+  autocmd FileType tex iabbrev 1s $\sigma$
+
   " autocmd FileType python iabbrev pprint print()<esc>ha
 
 
@@ -176,6 +186,7 @@ set statusline+=[%2c]\ %5l/%L "columns, etc
 "hi CursorLine   term=NONE cterm=NONE ctermbg=lightgrey ctermfg=NONE 
 "set cursorline
 hi CursorLineNr term=bold ctermfg=Red gui=bold guifg=Yellow
+" colorscheme evening
 
 set laststatus=2
 "set cindent
