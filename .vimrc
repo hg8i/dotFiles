@@ -1,5 +1,6 @@
 syntax on
 
+
 " Change spelling underline color
 hi clear SpellBad
 hi SpellBad cterm=underline ctermbg=8
@@ -49,6 +50,7 @@ augroup comments
   autocmd FileType python setlocal commentstring=#\ %s
   autocmd FileType make setlocal commentstring=#\ %s
   autocmd FileType cong setlocal commentstring=#\ %s
+  autocmd FileType text setlocal commentstring=#\ %s
   autocmd FileType tex setlocal commentstring=%\ %s
   autocmd FileType sh setlocal commentstring=#\ %s
   autocmd FileType vim setlocal commentstring=\"\ %s
@@ -121,7 +123,7 @@ augroup testgroup
   autocmd FileType tex iabbrev fb1 $fb-1$
   autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
   autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
-  autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
+  " autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
   autocmd FileType tex iabbrev 1draw \begin{tikzpicture}[remember picture,overlay]\end{tikzpicture}% use 1trect, 1tcirc, 1tnode, 1tpath, options: [red, rotate=90, fill=green, rounded corners=2pt], \draw [->] (A) edge (B) <esc>$F\i
   autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (0.5\textwidth,0.5\textheight)rectangle(4cm,3.7cm);
   autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (0.5\textwidth,0.5\textheight)circle(0.3cm);
@@ -130,6 +132,7 @@ augroup testgroup
   autocmd FileType tex iabbrev 1box \cfbox{red}{}<left>
   autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(0.50\paperwidth,0.50\paperheight)<cr>\end{textblock*}
   autocmd FileType tex iabbrev 1s $\sigma$
+  autocmd FileType tex iabbrev 1h $H\to\mu\mu$
 
   " autocmd FileType python iabbrev pprint print()<esc>ha
 
@@ -159,6 +162,7 @@ nnoremap <leader>w :<c-u>let @t=getreg('"')<cr>viw"dd"tP:<c-u>let @"=getreg('t')
 
 "remove highlight
 nnoremap <leader>hh :/^[.\+]<cr>
+" highlight color
 
 
 "shortcuts
@@ -184,9 +188,12 @@ set statusline+=[%2c]\ %5l/%L "columns, etc
 
 "color line and cursor
 "hi CursorLine   term=NONE cterm=NONE ctermbg=lightgrey ctermfg=NONE 
-"set cursorline
-hi CursorLineNr term=bold ctermfg=Red gui=bold guifg=Yellow
+" set cursorline
+" hi CursorLineNr term=bold ctermfg=222 gui=bold guifg=blue
+" hi Search cterm=NONE ctermfg=052 ctermbg=blue " good
 " colorscheme evening
+set cursorline
+colorscheme gruvbox
 
 set laststatus=2
 "set cindent
@@ -281,4 +288,12 @@ function! ToggleMouse()
     endif
 endfunc
 "end toggle mouse
+
+" white space show up (https://www.youtube.com/watch?v=aHm36-na4-4&feature=youtu.be#t=4m59s)
+" uses unicode:
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+" uses no unicode
+exec "set listchars=tab:>~,nbsp:_,trail:."
+set list
+
 
