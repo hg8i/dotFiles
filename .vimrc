@@ -26,7 +26,7 @@ set ignorecase
 set nowrap
 nnoremap <Space> @q
 nnoremap / H/
-set tabstop=2
+set tabstop=4
 " remap 0 to be faster
 nnoremap 0 hhll0
 
@@ -51,6 +51,7 @@ augroup comments
   autocmd FileType make setlocal commentstring=#\ %s
   autocmd FileType cong setlocal commentstring=#\ %s
   autocmd FileType text setlocal commentstring=#\ %s
+  autocmd FileType text syntax off
   autocmd FileType tex setlocal commentstring=%\ %s
   autocmd FileType sh setlocal commentstring=#\ %s
   autocmd FileType vim setlocal commentstring=\"\ %s
@@ -95,7 +96,7 @@ endfun
 "autocommands
 augroup testgroup
   autocmd!
-  autocmd ColorScheme * highlight WhiteSpaces gui=undercurl guifg=LightGray | match WhiteSpaces / \+/ 
+  " autocmd ColorScheme * highlight WhiteSpaces gui=undercurl guifg=LightGray | match WhiteSpaces / \+/ 
   autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
   autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
   autocmd FileType python iabbrev iff if:<left>
@@ -193,7 +194,10 @@ set statusline+=[%2c]\ %5l/%L "columns, etc
 " hi Search cterm=NONE ctermfg=052 ctermbg=blue " good
 " colorscheme evening
 set cursorline
-colorscheme gruvbox
+" set background=dark
+" let g:gruvbox_hls_cursor='neutral_blue'
+" colorscheme gruvbox
+" colorscheme orange-moon
 
 set laststatus=2
 "set cindent
@@ -296,4 +300,6 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 exec "set listchars=tab:>~,nbsp:_,trail:."
 set list
 
+
+colo darkRotationCurve
 
