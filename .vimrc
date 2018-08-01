@@ -1,3 +1,4 @@
+scriptencoding utf-8
 syntax on
 
 
@@ -26,7 +27,6 @@ set ignorecase
 set nowrap
 nnoremap <Space> @q
 nnoremap / H/
-set tabstop=4
 " remap 0 to be faster
 nnoremap 0 hhll0
 
@@ -57,6 +57,15 @@ augroup comments
   autocmd FileType vim setlocal commentstring=\"\ %s
   autocmd FileType conf setlocal commentstring=#\ %s
   autocmd FileType cpp setlocal commentstring=//\ %s
+augroup END
+
+augroup STACK 
+	autocmd!
+	" autocmd FileType python let b:pythonThreePrintOn=1
+	autocmd BufRead,BufNewFile *.stack setfiletype stack
+	autocmd BufRead,BufNewFile *.stack set nospell
+	" indentation (use tabs):
+	autocmd BufRead,BufNewFile *.stack setlocal ts=4 sts=4 sw=4
 augroup END
 
 " ####################### python 3 print
@@ -170,7 +179,7 @@ nnoremap <leader>hh :/^[.\+]<cr>
 "nnoremap <leader>_ ddp
 "nnoremap <leader>- ddkP
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr> : colo darkRotationCurve<cr>
 "for latex, change in $
 
 "iabbrev
@@ -201,9 +210,6 @@ set cursorline
 
 set laststatus=2
 "set cindent
-set shiftwidth=2
-set smartindent
-"set autoindent
 inoremap # X#
 
 
@@ -295,11 +301,17 @@ endfunc
 
 " white space show up (https://www.youtube.com/watch?v=aHm36-na4-4&feature=youtu.be#t=4m59s)
 " uses unicode:
-exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+" exec "set listchars=tab:\\|_,trail:\uB7,nbsp:~"
 " uses no unicode
-exec "set listchars=tab:>~,nbsp:_,trail:."
+exec "set listchars=tab:\\|_,nbsp:_,trail:_"
 set list
 
+" tab behavior
+set ts=4 sts=4 sw=4 et
+set smartindent
+"set autoindent
 
-colo darkRotationCurve
-
+" Set colorscheme AFTER reading the file, so that it gets the filetype
+augroup COLOR
+  autocmd BufRead,BufNewFile * colo darkRotationCurve
+augroup END
