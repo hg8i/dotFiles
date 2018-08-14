@@ -46,17 +46,17 @@ let maplocalleader = "="
 
 nnoremap <C-_> gcc
 augroup comments
-  autocmd!
-  autocmd FileType python setlocal commentstring=#\ %s
-  autocmd FileType make setlocal commentstring=#\ %s
-  autocmd FileType cong setlocal commentstring=#\ %s
-  autocmd FileType text setlocal commentstring=#\ %s
-  autocmd FileType text syntax off
-  autocmd FileType tex setlocal commentstring=%\ %s
-  autocmd FileType sh setlocal commentstring=#\ %s
-  autocmd FileType vim setlocal commentstring=\"\ %s
-  autocmd FileType conf setlocal commentstring=#\ %s
-  autocmd FileType cpp setlocal commentstring=//\ %s
+    autocmd!
+    autocmd FileType python setlocal commentstring=#\ %s
+    autocmd FileType make setlocal commentstring=#\ %s
+    autocmd FileType cong setlocal commentstring=#\ %s
+    autocmd FileType text setlocal commentstring=#\ %s
+    autocmd FileType text syntax off
+    autocmd FileType tex setlocal commentstring=%\ %s
+    autocmd FileType sh setlocal commentstring=#\ %s
+    autocmd FileType vim setlocal commentstring=\"\ %s
+    autocmd FileType conf setlocal commentstring=#\ %s
+    autocmd FileType cpp setlocal commentstring=//\ %s
 augroup END
 
 augroup STACK 
@@ -104,54 +104,62 @@ endfun
 
 "autocommands
 augroup testgroup
-  autocmd!
-  " autocmd ColorScheme * highlight WhiteSpaces gui=undercurl guifg=LightGray | match WhiteSpaces / \+/ 
-  autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
-  autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-  autocmd FileType python iabbrev iff if:<left>
-  autocmd FileType python set expandtab
-  autocmd FileType python set expandtab
-  "c
-  autocmd FileType c iabbrev iff if ()<left>
-  "bash
-  autocmd FileType bash nnoremap <buffer> <localleader>c I#<esc>
-  "tex
-  autocmd FileType tex setlocal wrap
-  autocmd FileType tex setlocal spell
-  autocmd FileType tex iabbrev 1pic \includegraphics[width=1\textwidth]{}<left>
-  autocmd FileType tex iabbrev 1table \resizebox{0.7\textwidth}{!}{\Huge\begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\end{tabular}}<esc><up>i<space>
-  autocmd FileType tex iabbrev 1item \begin{itemize}<cr>  \item<cr>\end{itemize}<esc><<<up>A
-  autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
-  autocmd FileType tex iabbrev 1col \begin{columns}<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>
-  autocmd FileType tex iabbrev 1resize \resizebox{0.9\textheight}{!}{\vbox{%start of resize box<cr>}}%end of resize box <esc><up>$ci
-  autocmd FileType tex iabbrev 1scale \scalebox{0.8}{\begin{minipage}{1.20\textwidth} % start of scalebox <cr>\end{minipage}} % stop of scalebox
-  autocmd FileType tex iabbrev 1cb {\color{blue}}<esc>i
-  autocmd FileType tex iabbrev 1cg {\color{green}}<esc>i
-  autocmd FileType tex iabbrev 1cr {\color{red}}<esc>i
-  autocmd FileType tex iabbrev 1cy {\color{yellow}}<esc>i
-  autocmd FileType tex iabbrev 1co {\color{orange}}<esc>i
-  autocmd FileType tex iabbrev fb1 $fb-1$
-  autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
-  autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
-  " autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
-  autocmd FileType tex iabbrev 1draw \begin{tikzpicture}[remember picture,overlay]\end{tikzpicture}% use 1trect, 1tcirc, 1tnode, 1tpath, options: [red, rotate=90, fill=green, rounded corners=2pt], \draw [->] (A) edge (B) <esc>$F\i
-  autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (0.5\textwidth,0.5\textheight)rectangle(4cm,3.7cm);
-  autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (0.5\textwidth,0.5\textheight)circle(0.3cm);
-  autocmd FileType tex iabbrev 1tpath \draw[->, red,ultra thick] (A) edge (B);
-  autocmd FileType tex iabbrev 1tnode \node (A) at (0.5\textwidth,0.5\textheight) {}; 
-  autocmd FileType tex iabbrev 1box \cfbox{red}{}<left>
-  autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(0.50\paperwidth,0.50\paperheight)<cr>\end{textblock*}
-  autocmd FileType tex iabbrev 1s $\sigma$
-  autocmd FileType tex iabbrev 1h $H\to\mu\mu$
+    autocmd!
+    " autocmd ColorScheme * highlight WhiteSpaces gui=undercurl guifg=LightGray | match WhiteSpaces / \+/ 
+    autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+    autocmd FileType python iabbrev iff if:<left>
+    autocmd FileType python set expandtab
+    autocmd FileType python set expandtab
+    "c
+    autocmd FileType c iabbrev iff if ()<left>
+    "bash
+    autocmd FileType bash nnoremap <buffer> <localleader>c I#<esc>
+    "tex
+    autocmd FileType tex setlocal wrap
+    autocmd FileType tex setlocal spell
+    autocmd FileType tex iabbrev 1pic \includegraphics[width=1\textwidth]{}<left>
+    autocmd FileType tex iabbrev 1table \resizebox{0.7\textwidth}{!}{\Huge\begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\end{tabular}}<esc><up>i<space>
+    autocmd FileType tex iabbrev 1item \begin{itemize}<cr>    \item<cr>\end{itemize}<esc><<<up>A
+    autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
+    autocmd FileType tex iabbrev 1col \begin{columns}<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>
+    autocmd FileType tex iabbrev 1resize \resizebox{0.9\textheight}{!}{\vbox{%start of resize box<cr>}}%end of resize box <esc><up>$ci
+    autocmd FileType tex iabbrev 1scale \scalebox{0.8}{\begin{minipage}{1.20\textwidth} % start of scalebox <cr>\end{minipage}} % stop of scalebox
+    autocmd FileType tex iabbrev 1cb {\color{blue}}<esc>i
+    autocmd FileType tex iabbrev 1cg {\color{green}}<esc>i
+    autocmd FileType tex iabbrev 1cr {\color{red}}<esc>i
+    autocmd FileType tex iabbrev 1cy {\color{yellow}}<esc>i
+    autocmd FileType tex iabbrev 1co {\color{orange}}<esc>i
+    autocmd FileType tex iabbrev fb1 $fb-1$
+    autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
+    autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
+    " autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
+    autocmd FileType tex iabbrev 1draw \begin{tikzpicture}[remember picture,overlay]\end{tikzpicture}% use 1trect, 1tcirc, 1tnode, 1tpath, options: [red, rotate=90, fill=green, rounded corners=2pt], \draw [->] (A) edge (B) <esc>$F\i
+    autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (0.5\textwidth,0.5\textheight)rectangle(4cm,3.7cm);
+    autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (0.5\textwidth,0.5\textheight)circle(0.3cm);
+    autocmd FileType tex iabbrev 1tpath \draw[->, red,ultra thick] (A) edge (B);
+    autocmd FileType tex iabbrev 1tnode \node (A) at (0.5\textwidth,0.5\textheight) {}; 
+    autocmd FileType tex iabbrev 1box \cfbox{red}{}<left>
+    autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(0.50\paperwidth,0.50\paperheight)<cr>\end{textblock*}
+    autocmd FileType tex iabbrev 1s $\sigma$
+    autocmd FileType tex iabbrev 1h $H\to\mu\mu$
+    autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
+    autocmd BufNewFile,BufRead *.html setlocal nowrap
+    autocmd FileType text setlocal wrap
+    autocmd FileType text setlocal spell
 
-  " autocmd FileType python iabbrev pprint print()<esc>ha
-
-
-  autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
-  autocmd BufNewFile,BufRead *.html setlocal nowrap
-  autocmd FileType text setlocal wrap
-  autocmd FileType text setlocal spell
+    " stack commands
+    " command to make new day entry
+    autocmd FileType stack command! InsertDate :exec "normal O==== " . system("date +%d%m%y | tr -d '\n'")
+    autocmd FileType stack nnoremap <localleader>d :exec "<c-u>InsertDate<cr><cr>" \| k
+    " command to make new time entry
+    autocmd FileType stack command! InsertTime :exec "normal O* " . system("date +%H%M | tr -d '\n'") . ": "
+    autocmd FileType stack nnoremap <localleader>t :exec "<c-u>InsertTime<cr>" \| k
 augroup END
+
+" function! InsertDate()
+"     exec "normal i" . system("date +%d%m%y")
+" endfunction
 
 "operator remaps
 onoremap p i(
@@ -188,7 +196,7 @@ iabbrev llist \begin{enumerate}<cr>\item<cr>\end{enumerate}<esc>0ki<tab><esc>A
 
 "statusline
 set statusline+=%r " readonly
-set statusline=%f         " Path to the file
+set statusline=%f               " Path to the file
 set statusline+=\ -\      " Separator
 set statusline+=%y        " Filetype of the file
 set statusline+=\ -\      " Separator
@@ -225,9 +233,9 @@ nnoremap <F10> :set invpaste paste? \| :set invnumber number? \| :set invrelativ
 
 
 augroup NO_CURSOR_MOVE_ON_SELECTION
-  au!
-  au MenuPopup * let g:oldmouse=&mouse | set mouse=
-  au CursorMoved * if exists('g:oldmouse') | let &mouse=g:oldmouse | unlet g:oldmouse | endif
+    au!
+    au MenuPopup * let g:oldmouse=&mouse | set mouse=
+    au CursorMoved * if exists('g:oldmouse') | let &mouse=g:oldmouse | unlet g:oldmouse | endif
 augroup END
 
 "alt smooth scroll
@@ -261,18 +269,18 @@ nnoremap zh 20zh
 
 "comment function
 function! Comment()
-  let curCol=col(".")
-  let curRow=line(".")
-  let commentCommand="i//"
-  let unCommentCommand="xx"
-  exec "normal ^"
-  if getline('.')[col('.')-1]=="/" && getline('.')[col('.')-0]=="/"
-    exec "normal " . unCommentCommand
-    call cursor(curRow,curCol-2)
-  else
-    exec "normal " . commentCommand
-    call cursor(curRow,curCol+2)
-  endif
+    let curCol=col(".")
+    let curRow=line(".")
+    let commentCommand="i//"
+    let unCommentCommand="xx"
+    exec "normal ^"
+    if getline('.')[col('.')-1]=="/" && getline('.')[col('.')-0]=="/"
+        exec "normal " . unCommentCommand
+        call cursor(curRow,curCol-2)
+    else
+        exec "normal " . commentCommand
+        call cursor(curRow,curCol+2)
+    endif
 endfunction
 
 "nnoremap <C-_> :call Comment()<enter>
@@ -281,14 +289,14 @@ endfunction
 "edit multiple lines in visual mode
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
+    echo "@".getcmdline()
+    execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 "end edit multiple lines in visual mode
 
 "toggle mouse
 function! ToggleMouse()
-    " check if mouse is enabled
+        " check if mouse is enabled
     if &mouse == 'nvc'
         " disable mouse
         set mouse=
@@ -313,5 +321,6 @@ set smartindent
 
 " Set colorscheme AFTER reading the file, so that it gets the filetype
 augroup COLOR
-  autocmd BufRead,BufNewFile * colo darkRotationCurve
+    autocmd BufRead,BufNewFile * colo darkRotationCurve
 augroup END
+
