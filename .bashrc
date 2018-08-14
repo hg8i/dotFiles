@@ -36,13 +36,14 @@ alias py3="python3"
 alias p="ping www.google.com"
 alias bell="echo $'\a'"
 alias targa="tar -zxaf"
+alias targz="tar -xvzf"
 alias root="root -l"
 # alias ll="ls -lrt"
 alias ls1="ls -1"
 
 alias cpf=". copyAndFollow"
 alias mvf=". moveAndFollow"
-alias date='date "+DATE: %m/%d/%y%nTIME: %H:%M:%S"'
+# alias date='date "+DATE: %m/%d/%y%nTIME: %H:%M:%S"'
 alias def="sdcv"
 alias grep="grep -i --color=always"
 alias bashrc="source ~/.bashrc"
