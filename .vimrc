@@ -220,6 +220,8 @@ set laststatus=2
 "set cindent
 inoremap # X#
 
+" paste to end of line: gp
+nnoremap gp $p
 
 "paste from last COPIED register
 "nnoremap p "0p 
