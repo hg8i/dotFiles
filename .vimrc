@@ -150,8 +150,9 @@ augroup testgroup
 
     " stack commands
     " command to make new day entry
-    autocmd FileType stack command! InsertDate :exec "normal O==== " . system("date +%d%m%y | tr -d '\n'")
-    autocmd FileType stack nnoremap <localleader>d :exec "<c-u>InsertDate<cr><cr>" \| k
+    autocmd FileType stack command! InsertDate :exec "normal O==== " . system("date +%d%m%y") . "* " . system("date +%H%M | tr -d '\n'") . ": "
+
+    autocmd FileType stack nnoremap <localleader>d :exec "<c-u>InsertDate<cr>" \| k
     " command to make new time entry
     autocmd FileType stack command! InsertTime :exec "normal O* " . system("date +%H%M | tr -d '\n'") . ": "
     autocmd FileType stack nnoremap <localleader>t :exec "<c-u>InsertTime<cr>" \| k
