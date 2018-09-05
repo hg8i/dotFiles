@@ -119,7 +119,7 @@ augroup testgroup
     autocmd FileType tex setlocal wrap
     autocmd FileType tex setlocal spell
     autocmd FileType tex iabbrev 1pic \includegraphics[width=1\textwidth]{}<left>
-    autocmd FileType tex iabbrev 1table \resizebox{0.7\textwidth}{!}{\Huge\begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\end{tabular}}<esc><up>i<space>
+    autocmd FileType tex iabbrev 1table \resizebox{0.7\textwidth}{!}{\Huge\begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\hline\end{tabular}}<esc><up>i<space>
     autocmd FileType tex iabbrev 1item \begin{itemize}<cr>    \item<cr>\end{itemize}<esc><<<up>A
     autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
     autocmd FileType tex iabbrev 1col \begin{columns}<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>
