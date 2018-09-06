@@ -11,6 +11,7 @@ sudo systemctl start acpid.service
 #start widgits
 nm-applet &
 redshift-gtk &
+mountManager.py3 &
 
 #run xresources on launch
 sysresources=$HOME/.Xresources
