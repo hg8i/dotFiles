@@ -143,6 +143,7 @@ augroup testgroup
     autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(0.50\paperwidth,0.50\paperheight)<cr>\end{textblock*}
     autocmd FileType tex iabbrev 1s $\sigma$
     autocmd FileType tex iabbrev 1h $H\to\mu\mu$
+    autocmd FileType tex iabbrev 1code \begin{lstlisting}[basicstyle=\tiny]% place [fragile] at start of frame<cr>\end{lstlisting}
     autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
     autocmd BufNewFile,BufRead *.html setlocal nowrap
     autocmd FileType text setlocal wrap
