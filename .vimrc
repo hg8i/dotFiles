@@ -29,6 +29,8 @@ nnoremap <Space> @q
 nnoremap / H/
 " remap 0 to be faster
 nnoremap 0 hhll0
+" remap to yank to end on line
+nnoremap Y y$
 
 "clean blank lines
 command! Clean :%s/^\s*$//g | :normal <C-O>
@@ -126,6 +128,7 @@ augroup testgroup
     autocmd FileType tex iabbrev 1resize \resizebox{0.9\textheight}{!}{\vbox{%start of resize box<cr>}}%end of resize box <esc><up>$ci
     autocmd FileType tex iabbrev 1scale \scalebox{0.8}{\begin{minipage}{1.20\textwidth} % start of scalebox <cr>\end{minipage}} % stop of scalebox
     autocmd FileType tex iabbrev 1cb {\color{blue}}<esc>i
+    autocmd FileType tex iabbrev 1ck {\color{gray}}<esc>i
     autocmd FileType tex iabbrev 1cg {\color{green}}<esc>i
     autocmd FileType tex iabbrev 1cr {\color{red}}<esc>i
     autocmd FileType tex iabbrev 1cy {\color{yellow}}<esc>i
@@ -178,7 +181,7 @@ onoremap n( :<c-u>execute "normal! /(\r:nohlsearch\rlvi("<cr>
 onoremap i$ :<c-u>normal! T$vt$"<cr>
 
 "map to replace word with yanked, then restore clipboard
-nnoremap <leader>w :<c-u>let @t=getreg('"')<cr>viw"dd"tP:<c-u>let @"=getreg('t')<cr>
+nnoremap gw :<c-u>let @t=getreg('"')<cr>viw"dd"tP:<c-u>let @"=getreg('t')<cr>
 
 "remove highlight
 nnoremap <leader>hh :/^[.\+]<cr>
