@@ -27,8 +27,9 @@ set ignorecase
 set smartcase
 set incsearch
 set nowrap
+set scrolloff=1
 nnoremap <Space> @q
-nnoremap / H/
+" nnoremap / H/
 " remap 0 to be faster
 nnoremap 0 hhll0
 " remap to yank to end on line
@@ -123,7 +124,7 @@ augroup testgroup
     autocmd FileType tex setlocal wrap
     autocmd FileType tex setlocal spell
     autocmd FileType tex iabbrev 1pic \includegraphics[width=1\textwidth]{}<left>
-    autocmd FileType tex iabbrev 1table \resizebox{0.7\textwidth}{!}{\Huge\begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\hline\end{tabular}}<esc><up>i<space>
+    autocmd FileType tex iabbrev 1table \begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\hline\end{tabular}<esc><up>i<space>
     autocmd FileType tex iabbrev 1item \begin{itemize}<cr>    \item<cr>\end{itemize}<esc><<<up>A
     autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
     autocmd FileType tex iabbrev 1col \begin{columns}<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>
@@ -139,11 +140,12 @@ augroup testgroup
     autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
     autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
     " autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
-    autocmd FileType tex iabbrev 1draw \begin{tikzpicture}[remember picture,overlay]<cr>\end{tikzpicture}% use 1trect, 1tcirc, 1tnode, 1tpath, options: [red, rotate=90, fill=green, rounded corners=2pt], \draw [->] (A) edge (B) <esc>$F\i
+    autocmd FileType tex iabbrev 1draw % ##################### <cr>% Macros: 1trect, 1tcirc, 1tnode, 1tpath <cr>% Bracket options: [red, rotate=90, fill=green, rounded corners=2pt] <cr>% Draw an arrow between nodes: \draw [->] (A) edge (B) <cr>% Box around image: \draw[thick] (page cs:-1,-1) rectangle (page cs:1,1); <cr>\begin{tikzpicture}[remember picture,overlay] <cr>\end{tikzpicture}<esc>$F\i
+
     autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (0.5\textwidth,0.5\textheight)rectangle(4cm,3.7cm);
     autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (0.5\textwidth,0.5\textheight)circle(0.3cm);
     autocmd FileType tex iabbrev 1tpath \draw[->, red,ultra thick] (A) edge (B);
-    autocmd FileType tex iabbrev 1tnode \node (A) at (0.5\textwidth,0.5\textheight) {}; 
+    autocmd FileType tex iabbrev 1tnode \node (A) at (page cs: 0,0) {words}; 
     autocmd FileType tex iabbrev 1box \cfbox{red}{}<left>
     autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(0.50\paperwidth,0.50\paperheight)<cr>\end{textblock*}
     autocmd FileType tex iabbrev 1s $\sigma$
