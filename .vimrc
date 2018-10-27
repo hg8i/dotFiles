@@ -140,7 +140,7 @@ augroup testgroup
     autocmd FileType tex iabbrev 1co {\color{orange}}<esc>i
     autocmd FileType tex iabbrev fb1 $fb-1$
     autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
-    autocmd FileType tex iabbrev 1v \vspace{cm}<left><left><left>
+    autocmd FileType tex iabbrev 1v \vspace{em}<left><left><left>
     " autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
     autocmd FileType tex iabbrev 1draw % ##################### <cr>% Macros: 1trect, 1tcirc, 1tnode, 1tpath <cr>% Bracket options: [red, rotate=90, fill=green, rounded corners=2pt] <cr>% Draw an arrow between nodes: \draw [->] (A) edge (B) <cr>% Box around image: \draw[thick] (page cs:-1,-1) rectangle (page cs:1,1); <cr>\begin{tikzpicture}[remember picture,overlay] <cr>\end{tikzpicture}<esc>$F\i
     autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (0.5\textwidth,0.5\textheight)rectangle(4cm,3.7cm);
@@ -151,7 +151,7 @@ augroup testgroup
     autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(0.50\paperwidth,0.50\paperheight)<cr>\end{textblock*}
     autocmd FileType tex iabbrev 1s $\sigma$
     autocmd FileType tex iabbrev 1h $H\to\mu\mu$
-    autocmd FileType tex iabbrev 1l \noindent\rule{\textwidth}{0.4pt}
+    autocmd FileType tex iabbrev 1line \noindent\rule{\textwidth}{0.4pt}
     autocmd FileType tex iabbrev 1code \begin{lstlisting}[basicstyle=\tiny]<cr>\end{lstlisting}% place [fragile] at start of frame
     autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
     autocmd BufNewFile,BufRead *.html setlocal nowrap
@@ -336,4 +336,5 @@ set smartindent
 augroup COLOR
     autocmd BufRead,BufNewFile * colo darkRotationCurve
 augroup END
+
 
