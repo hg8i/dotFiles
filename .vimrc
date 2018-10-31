@@ -42,7 +42,7 @@ vnoremap // y/<C-R>"<CR>
 
 "if launch without filename, enter insert mode
 if @% == "" 
-	:startinsert
+    :startinsert
 endif
 
 "leader
@@ -62,45 +62,46 @@ augroup comments
     autocmd FileType vim setlocal commentstring=\"\ %s
     autocmd FileType conf setlocal commentstring=#\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
+    autocmd FileType xdefaults setlocal commentstring=!\ %s
 augroup END
 
 augroup STACK 
-	autocmd!
-	" autocmd FileType python let b:pythonThreePrintOn=1
-	autocmd BufRead,BufNewFile *.stack setfiletype stack
-	autocmd BufRead,BufNewFile *.stack set nospell
-	" indentation (use tabs):
-	autocmd BufRead,BufNewFile *.stack setlocal ts=4 sts=4 sw=4
+    autocmd!
+    " autocmd FileType python let b:pythonThreePrintOn=1
+    autocmd BufRead,BufNewFile *.stack setfiletype stack
+    autocmd BufRead,BufNewFile *.stack set nospell
+    " indentation (use tabs):
+    autocmd BufRead,BufNewFile *.stack setlocal ts=4 sts=4 sw=4
 augroup END
 
 " ####################### python 3 print
 augroup PYTHON 
-	autocmd!
-	" autocmd FileType python let b:pythonThreePrintOn=1
-	autocmd BufRead,BufNewFile *.py3 setfiletype python
-	autocmd InsertLeave *py3 call PythonThreePrint() 
+    autocmd!
+    " autocmd FileType python let b:pythonThreePrintOn=1
+    autocmd BufRead,BufNewFile *.py3 setfiletype python
+    autocmd InsertLeave *py3 call PythonThreePrint() 
 augroup END
 
 fun! PythonThreePrint()
-	" update print statement to python 3
-	" regex to match python2 print statements: ^\s*print\( (\|(\|\a\)\@!
+    " update print statement to python 3
+    " regex to match python2 print statements: ^\s*print\( (\|(\|\a\)\@!
 
-	" if line under cursor has python2 style print
-	let line = getline('.')
-	if line =~# '^\s*print\( (\|(\|\a\)\@!'
-		" record current cursor pos
-		let curCol=col(".") 
-		let curRow=line(".") 
-		" let char=matchstr(getline('.'), '\%' . col('.') . 'c.') " not needed
-		" get line under cursor to buffer z
-		" let line = getline('.')
-		" wrap print in parens ()
-		execute "normal! ^ftl"
-		execute "normal! r(g_a)"
-		call cursor(curRow,curCol+1)
-		return 1
-	endif
-	return 0
+    " if line under cursor has python2 style print
+    let line = getline('.')
+    if line =~# '^\s*print\( (\|(\|\a\)\@!'
+        " record current cursor pos
+        let curCol=col(".") 
+        let curRow=line(".") 
+        " let char=matchstr(getline('.'), '\%' . col('.') . 'c.') " not needed
+        " get line under cursor to buffer z
+        " let line = getline('.')
+        " wrap print in parens ()
+        execute "normal! ^ftl"
+        execute "normal! r(g_a)"
+        call cursor(curRow,curCol+1)
+        return 1
+    endif
+    return 0
 endfun
 " ####################### python 3 print
 
@@ -151,6 +152,7 @@ augroup testgroup
     autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(0.50\paperwidth,0.50\paperheight)<cr>\end{textblock*}
     autocmd FileType tex iabbrev 1s $\sigma$
     autocmd FileType tex iabbrev 1h $H\to\mu\mu$
+    autocmd FileType tex iabbrev 1fb fb$^{-1}$
     autocmd FileType tex iabbrev 1line \noindent\rule{\textwidth}{0.4pt}
     autocmd FileType tex iabbrev 1code \begin{lstlisting}[basicstyle=\tiny]<cr>\end{lstlisting}% place [fragile] at start of frame
     autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
