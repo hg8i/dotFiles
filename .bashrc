@@ -16,6 +16,7 @@ PS1='[\u@\h \W]\$ '
 
 export XENVIRONMENT="~/.Xresources"
 export STARDICT_DATA_DIR="~/.stardict-1"
+export TERM=xterm-color
 
 alias beep="echo -ne '\007'"
 alias gcd=". ~/scripts/gcd.sh"
