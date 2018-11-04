@@ -12,6 +12,7 @@ imap <Insert> <Nop>
 
 "remove auto comment after comment line
 set formatoptions-=or
+set formatoptions-=ro
 
 set noerrorbells
 set vb t_vb=
@@ -324,7 +325,7 @@ endfunc
 
 " white space show up (https://www.youtube.com/watch?v=aHm36-na4-4&feature=youtu.be#t=4m59s)
 " uses unicode:
-" exec "set listchars=tab:\\|_,trail:\uB7,nbsp:~"
+" exec "set listchars=tab:\\|_,trail:\uB7,space:\uB7,nbsp:~"
 " uses no unicode
 exec "set listchars=tab:\\|_,nbsp:_,trail:_"
 set list
@@ -338,5 +339,4 @@ set smartindent
 augroup COLOR
     autocmd BufRead,BufNewFile * colo darkRotationCurve
 augroup END
-
 
