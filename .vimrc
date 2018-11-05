@@ -230,6 +230,12 @@ set cursorline
 " colorscheme gruvbox
 " colorscheme orange-moon
 
+" fix indentation
+set nosmartindent
+set cindent
+set cinkeys-=0#
+set indentkeys-=0#
+
 set laststatus=2
 "set cindent
 inoremap # X#
