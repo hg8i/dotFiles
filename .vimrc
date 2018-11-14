@@ -72,7 +72,7 @@ augroup STACK
     autocmd BufRead,BufNewFile *.stack setfiletype stack
     autocmd BufRead,BufNewFile *.stack set nospell
     " indentation (use tabs):
-    autocmd BufRead,BufNewFile *.stack setlocal ts=4 sts=4 sw=4
+    " autocmd BufRead,BufNewFile *.stack setlocal ts=4 sts=4 sw=4
 augroup END
 
 " ####################### python 3 print
@@ -230,15 +230,21 @@ set cursorline
 " colorscheme gruvbox
 " colorscheme orange-moon
 
-" fix indentation
-set nosmartindent
-set cindent
-set cinkeys-=0#
-set indentkeys-=0#
+" ###############################
+" tab/indent behavior
+set ts=4 sts=4 sw=4 et
+" " fix indentation
+" set nosmartindent
+" set cinkeys-=0#
+" set indentkeys-=0#
+
+" set nosmartindent
+set smartindent
+set cindent 
+" inoremap # X#
+" ###############################
 
 set laststatus=2
-"set cindent
-inoremap # X#
 
 " paste to end of line: gp
 nnoremap gp $p
@@ -336,10 +342,6 @@ endfunc
 exec "set listchars=tab:\\|_,nbsp:_,trail:_"
 set list
 
-" tab behavior
-set ts=4 sts=4 sw=4 et
-set smartindent
-"set autoindent
 
 " Set colorscheme AFTER reading the file, so that it gets the filetype
 augroup COLOR
