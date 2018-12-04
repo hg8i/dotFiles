@@ -1,6 +1,7 @@
 scriptencoding utf-8
 syntax on
 
+set noswapfile
 
 " Change spelling underline color
 hi clear SpellBad
@@ -116,8 +117,8 @@ augroup testgroup
     autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
     autocmd FileType python iabbrev iff if:<left>
-    autocmd FileType python set expandtab
-    autocmd FileType python set expandtab
+    " autocmd FileType python set expandtab
+    " autocmd FileType python set expandtab
     "c
     autocmd FileType c iabbrev iff if ()<left>
     "bash
@@ -140,6 +141,7 @@ augroup testgroup
     autocmd FileType tex iabbrev 1cr {\color{red}}<esc>i
     autocmd FileType tex iabbrev 1cy {\color{yellow}}<esc>i
     autocmd FileType tex iabbrev 1co {\color{orange}}<esc>i
+    autocmd FileType tex iabbrev 1bf \textbf{}<esc>i
     autocmd FileType tex iabbrev fb1 $fb-1$
     autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
     autocmd FileType tex iabbrev 1v \vspace{em}<left><left><left>
@@ -238,9 +240,9 @@ set ts=4 sts=4 sw=4 et
 " set cinkeys-=0#
 " set indentkeys-=0#
 
-" set nosmartindent
-set smartindent
-set cindent 
+set nosmartindent
+" set smartindent
+" set cindent 
 " inoremap # X#
 " ###############################
 
@@ -348,3 +350,5 @@ augroup COLOR
     autocmd BufRead,BufNewFile * colo darkRotationCurve
 augroup END
 
+set indentexpr=""
+set indentkeys=""
