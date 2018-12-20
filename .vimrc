@@ -146,11 +146,12 @@ augroup testgroup
     autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
     autocmd FileType tex iabbrev 1v \vspace{em}<left><left><left>
     " autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
-    autocmd FileType tex iabbrev 1draw % ##################### <cr>% Macros: 1trect, 1tcirc, 1tnode, 1tpath <cr>% Bracket options: [red, rotate=90, fill=green, rounded corners=2pt] <cr>% Draw an arrow between nodes: \draw [->] (A) edge (B) <cr>% Box around image: \draw[thick] (page cs:-1,-1) rectangle (page cs:1,1); <cr>\begin{tikzpicture}[remember picture,overlay] <cr>\end{tikzpicture}<esc>$F\i
+    autocmd FileType tex iabbrev 1draw % ##################### <cr>% Macros: 1trect, 1tcirc, 1tnode, 1tarrow, 1tpath <cr>% Bracket options: [red, rotate=90, fill=green, rounded corners=2pt] <cr>% Draw an arrow between nodes: \draw [->] (A) edge (B) <cr>% Box around image: \draw[thick] (page cs:-1,-1) rectangle (page cs:1,1); <cr>\begin{tikzpicture}[remember picture,overlay] <cr>\end{tikzpicture}<esc>$F\i
     autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (0.5\textwidth,0.5\textheight)rectangle(4cm,3.7cm);
     autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (0.5\textwidth,0.5\textheight)circle(0.3cm);
     autocmd FileType tex iabbrev 1tpath \draw[->, red,ultra thick] (A) edge (B);
     autocmd FileType tex iabbrev 1tnode \node (A) at (page cs: 0,0) {words};
+    autocmd FileType tex iabbrev 1tarrow \draw[blue,-{stealth},thin,line width=3mm] (page cs: 0.5,0) -- (page cs: -0.5,0);
     autocmd FileType tex iabbrev 1box \cfbox{red}{}<left>
     autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(0.50\paperwidth,0.50\paperheight)<cr>\end{textblock*}
     autocmd FileType tex iabbrev 1s $\sigma$
