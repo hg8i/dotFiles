@@ -16,7 +16,8 @@ PS1='[\u@\h \W]\$ '
 
 export XENVIRONMENT="~/.Xresources"
 export STARDICT_DATA_DIR="~/.stardict-1"
-export TERM=xterm-color
+# export TERM=xterm-color
+export XDG_CONFIG_HOME="~/.config"
 
 alias beep="echo -ne '\007'"
 alias gcd=". ~/scripts/gcd.sh"
@@ -54,6 +55,7 @@ alias pic1="gnome-screenshot -a -f"
 
 #auto completion
 complete -f -X '!*.pdf' evince
+complete -f -X '!*.pdf' zathura
 complete -f -X '!*.tex' pdflatex
 complete -f -X '!*.tex' slidesLatex
 complete -f -X '!*.py' py
