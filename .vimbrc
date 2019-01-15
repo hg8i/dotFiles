@@ -1,0 +1,59 @@
+
+# Vimb browser configuration
+
+# Movement
+nnoremap d <C-d>
+nnoremap u <C-u>
+nnoremap j 3j
+nnoremap k 3k
+
+# Page navigation
+nnoremap H <C-O>
+nnoremap L <C-I>
+nnoremap o :open 
+nnoremap <C-L> :open 
+nnoremap O :tabopen 
+nnoremap <C-N> :tabopen<CR>
+
+nnoremap <Page_Up> <C-O>
+
+
+# Open last page
+# nnoremap <C-O> U
+
+# Print
+nnoremap p :ha<CR>
+
+# Close window
+nnoremap q :q<CR>
+# nnoremap x :q<CR>
+
+set home-page=http://www.hg8i.com/r?pass=4
+set incsearch=True
+
+# Shortcuts
+shortcut-add ars=http://www.arstechnica.com
+shortcut-add git=https://github.com/hg8i
+shortcut-add map=https://www.google.com/maps/@46.22475,2.0517,6z
+shortcut-add bbc=https://www.bbc.com/news
+
+# Searches
+shortcut-add smap=https://maps.google.com/maps?addr=$0
+shortcut-add dmap=https://maps.google.com/maps?saddr=$0&daddr=$1
+shortcut-add w=http://en.wikipedia.org/w/index.php?title=Special:Search&search=$0
+shortcut-add aw=https://wiki.archlinux.org/index.php?title=Special:Search&search=$0
+
+# Settings
+set download-path=/home/prime/Downloads
+set input-autohide=true
+set smooth-scrolling=true
+set spell-checking=true
+set plugins=true
+set strict-ssl=false
+
+# Configure vim as editor
+# set editor-command='urxvt -e vim %s'
+set editor-command=urxvt -e vim %s
+
+# password manager (custom command)
+set insert-command=/home/prime/scripts/passwordTool.py %s %s
