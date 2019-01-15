@@ -17,12 +17,11 @@ PS1='[\u@\h \W]\$ '
 export XENVIRONMENT="~/.Xresources"
 export STARDICT_DATA_DIR="~/.stardict-1"
 # export TERM=xterm-color
-export XDG_CONFIG_HOME="~/.config"
 
 alias beep="echo -ne '\007'"
 alias gcd=". ~/scripts/gcd.sh"
 alias cd="cd -P"
-alias cal="cal 2018"
+alias cal="cal 2019"
 alias cal9="/usr/bin/cal 2019"
 alias vifm="vifmLaunch"
 alias pdflatexd="pdflatex -draftmode"
@@ -89,4 +88,5 @@ export PS1="[\[\033[1;34m\]\u@\h \W\[\033[0m\]]$ "
 if [ -f ~/.bashlocal ]; then
     source ~/.bashlocal
 fi
+
 
