@@ -37,6 +37,8 @@ nnoremap 0 hhll0
 " remap to yank to end on line
 nnoremap Y y$
 
+nnoremap K kJ
+
 "clean blank lines
 command! Clean :%s/^\s*$//g | :normal <C-O>
 
