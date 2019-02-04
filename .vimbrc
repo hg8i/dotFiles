@@ -26,7 +26,7 @@ nnoremap p :ha<CR>
 
 # Close window
 nnoremap q :q<CR>
-# nnoremap x :q<CR>
+nnoremap x :q<CR>
 
 set home-page=http://www.hg8i.com/r?pass=4
 set incsearch=True
@@ -57,3 +57,9 @@ set editor-command=urxvt -e vim %s
 
 # password manager (custom command)
 set insert-command=/home/prime/scripts/passwordTool.py %s %s
+
+# Open PDF in zathura automatically 
+# Bash is needed to expand options
+aug downloadPdf
+    au DownloadFinished *pdf sh! bash -c "zathura \$(ls -td /home/prime/Downloads/*pdf | head -n 1)"
+aug end
