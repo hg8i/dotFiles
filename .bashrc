@@ -18,6 +18,7 @@ export XENVIRONMENT="~/.Xresources"
 export STARDICT_DATA_DIR="~/.stardict-1"
 # export TERM=xterm-color
 
+alias o="open"
 alias beep="echo -ne '\007'"
 alias gcd=". ~/scripts/gcd.sh"
 alias cd="cd -P"
