@@ -42,6 +42,7 @@ shortcut-add smap=https://maps.google.com/maps?addr=$0
 shortcut-add dmap=https://maps.google.com/maps?saddr=$0&daddr=$1
 shortcut-add w=http://en.wikipedia.org/w/index.php?title=Special:Search&search=$0
 shortcut-add aw=https://wiki.archlinux.org/index.php?title=Special:Search&search=$0
+shortcut-add g=https://www.google.com/search?q=$0
 
 # Settings
 set download-path=/home/prime/Downloads
