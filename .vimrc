@@ -67,6 +67,7 @@ augroup comments
     autocmd FileType conf setlocal commentstring=#\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
     autocmd FileType xdefaults setlocal commentstring=!\ %s
+    autocmd FileType stack setlocal commentstring=#\ %s
 augroup END
 
 augroup STACK 
