@@ -132,11 +132,12 @@ augroup testgroup
     autocmd FileType tex setlocal spell
     autocmd FileType tex iabbrev 1pic \includegraphics[width=1\textwidth]{}<left>
     autocmd FileType tex iabbrev 1table \begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\hline\end{tabular}<esc><up>i<space>
-    autocmd FileType tex iabbrev 1item \begin{itemize}<cr>    \item<cr>\end{itemize}<esc><<<up>A
+    autocmd FileType tex iabbrev 1item \begin{itemize}\scriptsize<cr>    \item<cr>\end{itemize}<esc><<<up>A
+    autocmd FileType tex iabbrev 1enum \begin{enumerate}\scriptsize<cr>    \item<cr>\end{enumerate}<esc><<<up>A
     autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
-    autocmd FileType tex iabbrev 1col \begin{columns}<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>
-    autocmd FileType tex iabbrev 1col3 \begin{columns}<cr>\column{.35\textwidth}<cr>\column{.35\textwidth}<cr>\column{.35\textwidth}<cr>\end{columns} <esc><up>
-    autocmd FileType tex iabbrev 1col4 \begin{columns}<cr>\column{.25\textwidth}<cr>\column{.25\textwidth}<cr>\column{.25\textwidth}<cr>\column{.25\textwidth}<cr>\end{columns} <esc><up>
+    autocmd FileType tex iabbrev 1col \begin{columns}[T]<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>
+    autocmd FileType tex iabbrev 1col3 \begin{columns}[T]<cr>\column{.35\textwidth}<cr>\column{.35\textwidth}<cr>\column{.35\textwidth}<cr>\end{columns} <esc><up>
+    autocmd FileType tex iabbrev 1col4 \begin{columns}[T]<cr>\column{.25\textwidth}<cr>\column{.25\textwidth}<cr>\column{.25\textwidth}<cr>\column{.25\textwidth}<cr>\end{columns} <esc><up>
     autocmd FileType tex iabbrev 1resize \resizebox{0.9\textheight}{!}{\vbox{%start of resize box<cr>}}%end of resize box <esc><up>$ci
     autocmd FileType tex iabbrev 1scale \scalebox{0.8}{\begin{minipage}{1.20\textwidth} % start of scalebox <cr>\end{minipage}} % stop of scalebox
     autocmd FileType tex iabbrev 1cb {\color{blue}}<esc>i
