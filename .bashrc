@@ -19,6 +19,7 @@ export STARDICT_DATA_DIR="~/.stardict-1"
 # export TERM=xterm-color
 
 alias o="open"
+alias oo="open; fg"
 alias beep="echo -ne '\007'"
 alias gcd=". ~/scripts/gcd.sh"
 alias cd="cd -P"
@@ -50,8 +51,8 @@ alias mvf=". moveAndFollow"
 alias def="sdcv"
 alias grep="grep -i --color=always"
 alias bashrc="source ~/.bashrc"
-alias pic="gnome-screenshot -a -f $(mktemp -u /tmp/gscreenshot.XXXX.png)"
-alias pic1="gnome-screenshot -a -f"
+alias pic1="gnome-screenshot -a -f $(mktemp -u /tmp/gscreenshot.XXXX.png)"
+alias pic="gnome-screenshot -a -f"
 
 #auto completion
 complete -f -X '!*.pdf' evince
