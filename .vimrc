@@ -3,6 +3,9 @@ syntax on
 
 set noswapfile
 
+" Refresh spell check
+nnoremap gs :syntax sync fromstart<enter>
+
 " Change spelling underline color
 hi clear SpellBad
 hi SpellBad cterm=underline ctermbg=8
@@ -44,10 +47,10 @@ command! Clean :%s/^\s*$//g | :normal <C-O>
 
 vnoremap // y/<C-R>"<CR>
 
-"if launch without filename, enter insert mode
-if @% == "" 
-    :startinsert
-endif
+""if launch without filename, enter insert mode
+"if @% == "" 
+"    :startinsert
+"endif
 
 "leader
 let mapleader = "-"
