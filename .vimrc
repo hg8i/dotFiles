@@ -131,6 +131,9 @@ augroup testgroup
     autocmd FileType c iabbrev iff if ()<left>
     "bash
     autocmd FileType bash nnoremap <buffer> <localleader>c I#<esc>
+    "
+    autocmd FileType mail setlocal spell
+    autocmd FileType mail setlocal wrap
     "tex
     autocmd FileType tex setlocal wrap
     autocmd FileType tex setlocal spell
@@ -169,7 +172,7 @@ augroup testgroup
     autocmd FileType tex iabbrev 1h $H\to\mu\mu$
     autocmd FileType tex iabbrev 1fb fb$^{-1}$
     autocmd FileType tex iabbrev 1line \noindent\rule{\textwidth}{0.4pt}
-    autocmd FileType tex iabbrev 1code \begin{lstlisting}[basicstyle=\tiny]<cr>\end{lstlisting}% place [fragile] at start of frame
+    autocmd FileType tex iabbrev 1code \begin{lstlisting}[basicstyle=\tiny]<cr>\end{lstlisting}% place [fragile] at start of frame, use \pythonstyle for basic style
     autocmd FileType tex nnoremap <buffer> <localleader>c I%<esc>
     autocmd BufNewFile,BufRead *.html setlocal nowrap
     autocmd FileType text setlocal wrap
