@@ -138,6 +138,7 @@ augroup testgroup
     autocmd FileType tex setlocal wrap
     autocmd FileType tex setlocal spell
     autocmd FileType tex iabbrev 1pic \includegraphics[width=1\textwidth]{}<left>
+    autocmd FileType tex iabbrev 1fig \begin{figure}[htb]<cr>\begin{center}<cr>\includegraphics[width=0.8\linewidth]{figures/}<cr>\end{center}<cr>\vspace{-.4cm}<cr>\caption{}<cr>\label{fig:}<cr>\end{figure}<cr>
     autocmd FileType tex iabbrev 1table \begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\hline\end{tabular}<esc><up>i<space>
     autocmd FileType tex iabbrev 1item \begin{itemize}\scriptsize<cr>    \item<cr>\end{itemize}<esc><<<up>A
     autocmd FileType tex iabbrev 1enum \begin{enumerate}\scriptsize<cr>    \item<cr>\end{enumerate}<esc><<<up>A
