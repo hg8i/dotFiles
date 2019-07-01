@@ -153,6 +153,7 @@ augroup testgroup
     autocmd FileType tex iabbrev 1turn \begin{turn}{45}<cr>\end{turn} <esc><up>
     autocmd FileType tex iabbrev 1resize \resizebox{0.9\textheight}{!}{\vbox{%start of resize box<cr>}}%end of resize box <esc><up>$ci
     autocmd FileType tex iabbrev 1scale \scalebox{0.8}{\begin{minipage}{1.20\textwidth} % start of scalebox <cr>\end{minipage}} % stop of scalebox
+    autocmd FileType tex iabbrev 1align \begin{align*}<cr>\end{align*}
     autocmd FileType tex iabbrev 1cb {\color{blue}}<esc>i
     autocmd FileType tex iabbrev 1ck {\color{gray}}<esc>i
     autocmd FileType tex iabbrev 1cg {\color{green}}<esc>i
