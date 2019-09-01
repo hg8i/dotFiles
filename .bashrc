@@ -18,9 +18,12 @@ export XENVIRONMENT="~/.Xresources"
 export STARDICT_DATA_DIR="~/.stardict-1"
 # export TERM=xterm-color
 
+# Copy current dir. Not going to use dir command any time soon
+alias dir="pwd | rev | cut -d \"/\" -f1 | rev | xclip"
+
 alias o="open"
 alias oo="open; fg"
-alias beep="echo -ne '\007'"
+# alias beep="echo -ne '\007'"
 alias gcd=". ~/scripts/gcd.sh"
 alias cd="cd -P"
 alias cal="cal 2019"
@@ -29,7 +32,7 @@ alias vifm="vifmLaunch"
 alias pdflatexd="pdflatex -draftmode"
 #alias hg="history -a && hg.py"
 alias hg="source ~/scripts/hgh"
-alias ls="ls --color=auto"
+# alias ls="ls --color=auto"
 alias hello="echo hello!"
 alias la="ls -lrta --color=auto"
 alias rm="rm -rf"
@@ -43,7 +46,7 @@ alias targa="tar -zxaf"
 alias targz="tar -xvzf"
 alias root="root -l"
 # alias ll="ls -lrt"
-alias ls1="ls -1"
+# alias ls1="/bin/ls -1 | xclip"
 
 alias cpf=". copyAndFollow"
 alias mvf=". moveAndFollow"
@@ -52,7 +55,7 @@ alias def="sdcv"
 # alias grep="grep -i --color=always" #removed because atlas software uses this as dependance :(
 alias bashrc="source ~/.bashrc"
 alias pic1="gnome-screenshot -a -f $(mktemp -u /tmp/gscreenshot.XXXX.png)"
-alias pic="gnome-screenshot -a -f"
+# alias pic="gnome-screenshot -a -f"
 
 #auto completion
 complete -f -X '!*.pdf' evince
