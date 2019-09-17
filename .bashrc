@@ -45,6 +45,8 @@ alias bell="echo $'\a'"
 alias targa="tar -zxaf"
 alias targz="tar -xvzf"
 alias root="root -l"
+alias b="cd ../"
+alias bb="cd ../../"
 # alias ll="ls -lrt"
 # alias ls1="/bin/ls -1 | xclip"
 
