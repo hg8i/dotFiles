@@ -14,8 +14,10 @@ set runtimepath^=~/.vim/
 
 imap <Insert> <Nop>
 
-" shorten syntax highlight (good for long lines)
-set synmaxcol=120
+
+" nnoremap n ]s
+" nnoremap N [s
+" nnoremap z z=
 
 "remove auto comment after comment line
 set formatoptions-=or
@@ -76,6 +78,11 @@ augroup comments
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType stack setlocal commentstring=#\ %s
     autocmd FileType xml setlocal commentstring=<!--\ %s\ -->
+augroup END
+
+augroup TEX
+    " shorten syntax highlight (good for long lines in latex)
+    " autocmd FileType tex setlocal synmaxcol=220
 augroup END
 
 augroup STACK 
@@ -142,9 +149,10 @@ augroup testgroup
     autocmd FileType tex setlocal spell
     autocmd FileType tex iabbrev 1pic \includegraphics[width=1\textwidth]{}<left>
     autocmd FileType tex iabbrev 1fig \begin{figure}[htb]<cr>\begin{center}<cr>\includegraphics[width=0.8\linewidth]{figures/}<cr>\end{center}<cr>\vspace{-.4cm}<cr>\caption{}<cr>\label{fig:}<cr>\end{figure}<cr>
-    autocmd FileType tex iabbrev 1fig2 \begin{figure}[htp]<cr>\centering<cr>\begin{overpic}[width=0.449\textwidth]{figures/}\put(85,25){\textrm{(a)}}\end{overpic}<cr>\begin{overpic}[width=0.449\textwidth]{figures/}\put(85,25){\textrm{(b)}}\end{overpic}<cr>\caption{}<cr>\label{fig:}<cr>\end{figure}<cr>
-    autocmd FileType tex iabbrev 1table \begin{tabular}{\|r\|r\|r\|r\|r\|r\|r\|r\|r\|}\hline<cr><cr>\hline\end{tabular}<esc><up>i<space>
-    autocmd FileType tex iabbrev 1item \begin{itemize}\scriptsize<cr>    \item<cr>\end{itemize}<esc><<<up>A
+    autocmd FileType tex iabbrev 1fig2 \begin{figure}[htp]<cr>\centering<cr>\begin{overpic}[width=0.449\textwidth]{figures/}\put(85,-0.1){\textrm{(a)}}\end{overpic}<cr>\begin{overpic}[width=0.449\textwidth]{figures/}\put(85,-0.1){\textrm{(b)}}\end{overpic}<cr>\caption{}<cr>\label{fig:}<cr>\end{figure}<cr>
+    autocmd FileType tex iabbrev 1table \begin{tabular}{l r r r r r}\toprule<cr><cr>\bottomrule\end{tabular} %remember cline{1-2}<esc><up>i<space>
+    autocmd FileType tex iabbrev 1item \begin{itemize}<cr>    \item<cr>\end{itemize}<esc><<<up>A
+    autocmd FileType tex iabbrev 1items \begin{itemize}\scriptsize<cr>    \item<cr>\end{itemize}<esc><<<up>A
     autocmd FileType tex iabbrev 1enum \begin{enumerate}\scriptsize<cr>    \item<cr>\end{enumerate}<esc><<<up>A
     autocmd FileType tex iabbrev 1frame \begin{frame}<cr>\frametitle{}<cr>\end{frame}<esc><up>$ci}
     autocmd FileType tex iabbrev 1col \begin{columns}[T]<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>
