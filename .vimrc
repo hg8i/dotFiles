@@ -184,6 +184,7 @@ augroup testgroup
     autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(page cs: 0,0)<cr>\end{textblock*}
     autocmd FileType tex iabbrev 1s $\sigma$
     autocmd FileType tex iabbrev 1h $H\to\mu\mu$
+    autocmd FileType tex iabbrev 1met $E_T^\text{miss}$
     autocmd FileType tex iabbrev 1fb fb$^{-1}$
     autocmd FileType tex iabbrev 1line \noindent\rule{\textwidth}{0.4pt}
     autocmd FileType tex iabbrev 1code \begin{lstlisting}[basicstyle=\tiny]<cr>\end{lstlisting}% place [fragile] at start of frame, use \pythonstyle for basic style
