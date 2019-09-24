@@ -19,7 +19,7 @@ export STARDICT_DATA_DIR="~/.stardict-1"
 # export TERM=xterm-color
 
 # Copy current dir. Not going to use dir command any time soon
-alias dir="pwd | tr \"\n\" \"/\" | rev | cut -z -d \"/\" -f2 | rev | xclip"
+alias dir="echo Clipping path:;path; pwd | tr \"\n\" \"/\" | rev | cut -z -d \"/\" -f2 | rev | xclip"
 
 alias o="open"
 alias oo="open; fg"
