@@ -74,7 +74,7 @@ alias umt2="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int02.physics.lsa.umich.edu"
 alias umt3="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int03.physics.lsa.umich.edu"
 alias umt4="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int04.physics.lsa.umich.edu"
 alias umt5="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int05.physics.lsa.umich.edu"
-alias hg8i="echo xkcdisgreatyouknow; ssh -p 21098 phuwus@server38.web-hosting.com"
+alias hg8i="ssh -i ~/.ssh/hg8i -p 21098 phuwus@server38.web-hosting.com"
 
 # modify path 
 PATH="~/scripts:${PATH}"
