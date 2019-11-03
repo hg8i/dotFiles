@@ -82,7 +82,7 @@ augroup END
 
 augroup TEX
     " shorten syntax highlight (good for long lines in latex)
-    " autocmd FileType tex setlocal synmaxcol=220
+    " autocmd FileType tex setlocal synmaxcol=2000
 augroup END
 
 augroup STACK 
@@ -134,11 +134,9 @@ augroup testgroup
     " autocmd ColorScheme * highlight WhiteSpaces gui=undercurl guifg=LightGray | match WhiteSpaces / \+/ 
     autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
     autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-    autocmd FileType python iabbrev iff if:<left>
     " autocmd FileType python set expandtab
     " autocmd FileType python set expandtab
     "c
-    autocmd FileType c iabbrev iff if ()<left>
     "bash
     autocmd FileType bash nnoremap <buffer> <localleader>c I#<esc>
     "
@@ -179,7 +177,7 @@ augroup testgroup
     autocmd FileType tex iabbrev 1tpath \draw[->, red,ultra thick] (A) edge (B);
     autocmd FileType tex iabbrev 1tnode \node (A) at (page cs: 0,0) {words};
     autocmd FileType tex iabbrev 1tstar \tstar{1}{1.2}{20}{2}{ultra thick, draw=red,fill=yellow,shift={(page cs: 0,0)}};
-    autocmd FileType tex iabbrev 1tarrow \draw[blue,-{stealth},thin,line width=3mm] (page cs: 0.5,0) -- (page cs: -0.5,0);
+    autocmd FileType tex iabbrev 1tarrow \draw[blue,arrows={-Triangle[scale=0.5]},thin,line width=3mm] (page cs: 0.5,0) -- (page cs: -0.5,0);
     autocmd FileType tex iabbrev 1box \cfbox{red}{}<left>
     autocmd FileType tex iabbrev 1text \begin{textblock*}{1cm}(page cs: 0,0)<cr>\end{textblock*}
     autocmd FileType tex iabbrev 1s $\sigma$
