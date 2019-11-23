@@ -98,4 +98,4 @@ if [ -f ~/.bashlocal ]; then
     source ~/.bashlocal
 fi
 
-
+alias zathura="zathura -c ~/dotFiles"
