@@ -1,7 +1,8 @@
 
 # setup script for linkii
 
-ln -s .vimbrc ~/.vimbrc
-ln -s .vimrc ~/.vimrc
-ln -s .xinitrc ~/.xinitrc
-ln -s .bashrc ~/.bashrc
+unlink ~/.vimbrc; ln -s .vimbrc ~/.vimbrc
+unlink ~/.vimrc; ln -s .vimrc ~/.vimrc
+unlink ~/.xinitrc; ln -s .xinitrc ~/.xinitrc
+unlink ~/.bashrc; ln -s .bashrc ~/.bashrc
+
