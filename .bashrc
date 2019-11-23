@@ -75,10 +75,12 @@ alias umt3="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int03.physics.lsa.umich.edu"
 alias umt4="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int04.physics.lsa.umich.edu"
 alias umt5="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int05.physics.lsa.umich.edu"
 alias hg8i="ssh -i ~/.ssh/hg8i -p 21098 phuwus@server38.web-hosting.com"
+alias sshfs_hg8i="sshfs -p 21098 phuwus@server38.web-hosting.com:/home/phuwus/public_html ~/sshfs/hg8i -o IdentityFile=~/.ssh/hg8i; cd ~/sshfs/hg8i"
 
 # modify path 
 PATH="~/scripts:${PATH}"
 PATH="~/scripts/functionButtons:${PATH}"
+PATH="~/scripts/xStateToggle:${PATH}"
 
 #unfreeze ctrl-s
 stty -ixon

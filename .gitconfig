@@ -1,3 +1,8 @@
 [user]
-  name=Aaron White
-  email=aaronsw@umich.edu
+	name = aawhite
+	email = aaron.stephen.white@cern.ch
+	pass = Makeplotsshowslides!
+
+
+[credential]
+        helper = store
