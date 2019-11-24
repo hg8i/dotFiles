@@ -10,3 +10,5 @@ unlink ~/.xbindkeysrc; ln -s dotFiles/.xbindkeysrc ../.xbindkeysrc
 
 unlink ~/.Xmodmap_t470s; ln -s dotFiles/.Xmodmap_t470s ../.Xmodmap_t470s
 unlink ~/.Xmodmap_hhkb; ln -s dotFiles/.Xmodmap_hhkb ../.Xmodmap_hhkb
+
+unlink ~/redshift.conf; ln -s dotFiles/redshift.conf ../redshift.conf
