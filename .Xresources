@@ -1,0 +1,56 @@
+! XTerm.VT100.translations: #override \
+!    Shift <Key>Up: scroll-back(5,line) \n\
+!    Shift <Key>Down: scroll-forw(5,line) 
+
+! xterm*font: terminus-20
+! xterm*faceSize: 23
+
+! xterm*font:     *-fixed-*-*-*-38-*
+
+
+
+! #### urxvt settings ####
+! #URxvt.font: xft:Bitstream Vera Sans Mono:pixelsize=10
+! # fDejaVu
+! URxvt.font: xft:Bitstream DejaVu Sans Mono:style=Book:pixelsize=12
+! URxvt.lineSpace: 1
+! URxvt.letterSpace: -3
+! # Inconsolata
+
+! old:
+! URxvt.font: xft:Inconsolata:size=9:antialias=true
+URxvt*font: xft:Monospace:size=10:antialias=true
+! URxvt*font: xft:FreeMono:size=10:antialias=true
+! URxvt*font: xft:Unifont:size=10:antialias=true
+
+URxvt*cutchars:        *:,/={}[]()
+
+URxvt*scrollBar:       false
+rxvt.vim-scrollback-bg:16
+rxvt.vim-scrollback-fg:10
+URxvt.saveLines:       20000
+URxvt.iso14755:       false
+URxvt.urgentOnBell:       true
+
+! URxvt maps the control-arrow keys diff, fixes this
+URxvt.keysym.Control-Up:   \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Left: \033[1;5D
+URxvt.keysym.Control-Right:\033[1;5C
+
+! Black urxvt background
+Rxvt*background: #282828
+Rxvt*foreground: #eee
+URxvt.cursorColor: white
+*color12: #00DDFF
+
+Xft.lcdfilter: lcddefault
+Xft.antialias: true
+Xft.autohint: 0
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+! Xft.dpi: 96
+
+
+
