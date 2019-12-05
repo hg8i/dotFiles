@@ -47,6 +47,10 @@ nnoremap Y y$
 
 nnoremap K kJ
 
+" Move lines up/down
+nnoremap <C-K> :let @x=@"<cr>kddpk:let @"=@x<cr>
+nnoremap <C-J> :let @x=@"<cr>ddp:let @"=@x<cr>
+
 "clean blank lines
 command! Clean :%s/^\s*$//g | :normal <C-O>
 
