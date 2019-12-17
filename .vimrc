@@ -79,6 +79,7 @@ augroup comments
     autocmd FileType vim setlocal commentstring=\"\ %s
     autocmd FileType conf setlocal commentstring=#\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
+    autocmd FileType c setlocal commentstring=//\ %s
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType stack setlocal commentstring=#\ %s
     autocmd FileType xml setlocal commentstring=<!--\ %s\ -->
