@@ -47,6 +47,10 @@ nnoremap Y y$
 
 nnoremap K kJ
 
+" Move lines up/down
+nnoremap <C-K> :let @x=@"<cr>kddpk:let @"=@x<cr>
+nnoremap <C-J> :let @x=@"<cr>ddp:let @"=@x<cr>
+
 "clean blank lines
 command! Clean :%s/^\s*$//g | :normal <C-O>
 
@@ -74,6 +78,7 @@ augroup comments
     autocmd FileType vim setlocal commentstring=\"\ %s
     autocmd FileType conf setlocal commentstring=#\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
+    autocmd FileType c setlocal commentstring=//\ %s
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType stack setlocal commentstring=#\ %s
     autocmd FileType xml setlocal commentstring=<!--\ %s\ -->
