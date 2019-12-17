@@ -1,8 +1,9 @@
 # dotFiles
 Various config files
 
-Includes:
-  .bashrc
-  .vimrc
-  .xinit
-  .i3/config
+## Includes:
+  * .bashrc
+  * .vimrc
+  * .vimbrc
+  * .xinit
+  * .i3/config
