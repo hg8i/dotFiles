@@ -99,3 +99,8 @@ if [ -f ~/.bashlocal ]; then
 fi
 
 alias zathura="zathura -c ~/dotFiles"
+
+# save git credentials
+alias git_store_credentials="git config credential.helper store"
+# save git shor remote origin
+alias git_remote_show_origin="git remote show origin"
