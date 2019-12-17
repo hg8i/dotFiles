@@ -61,7 +61,6 @@ vnoremap // y/<C-R>"<CR>
 let mapleader = "-"
 let maplocalleader = "="
 
-nnoremap <C-_> gcc
 setlocal commentstring=#\ %s
 augroup comments
     autocmd!
@@ -268,10 +267,12 @@ set ts=4 sts=4 sw=4 et
 " set cinkeys-=0#
 " set indentkeys-=0#
 
-set nosmartindent
+
+filetype indent on
+" set nosmartindent
 " set smartindent
 " set cindent 
-" inoremap # X#
+inoremap # X#
 " ###############################
 
 set laststatus=2
