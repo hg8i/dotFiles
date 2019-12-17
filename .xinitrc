@@ -44,7 +44,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
 export SSH_AUTH_SOCK
 # 
 #xmodmap
-xmodmap ~/.Xmodmap_t470s
+xmodmap ~/.Xmodmap_hhkb
 #remap capslock as escape for short press!
 xcape -e 'Control_L=Escape'
 #control for middle mouse button
@@ -52,9 +52,11 @@ xbindkeys
 # 
 # #mark last window with "_last" id. Useful for my workspace command
 
-/home/prime/scripts/toggleTrackpad.sh off
+# /home/prime/scripts/toggleTrackpad.sh off
+
+# disable screen timer off
+xset s off
 
 # env TERMINAL=st # no! I'm setting this in config
 exec i3
-
 
