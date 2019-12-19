@@ -1,0 +1,13 @@
+set default-bg "#aaaaaa"
+
+unmap s
+map s toggle_statusbar
+
+map p print
+
+map u navigate previous
+map d navigate next
+
+map ma mark_add
+map 'a mark_evaluate
+
