@@ -1,5 +1,6 @@
 set default-bg "#aaaaaa"
 
+set page-padding 25
 unmap s
 map s toggle_statusbar
 
@@ -10,4 +11,5 @@ map d navigate next
 
 map ma mark_add
 map 'a mark_evaluate
+
 

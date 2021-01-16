@@ -1,10 +1,13 @@
 scriptencoding utf-8
 syntax on
 
+
 set noswapfile
 
 " Refresh spell check
 nnoremap gs :syntax sync fromstart<enter>
+nnoremap gss :syntax spell toplevel<enter>
+
 
 " Change spelling underline color
 hi clear SpellBad
@@ -12,16 +15,22 @@ hi SpellBad cterm=underline ctermbg=8
 
 set runtimepath^=~/.vim/
 
+" turned on to load files in ftplugin directory
+filetype plugin on
+set rtp^=~/.vim/ftplugin/
+
 imap <Insert> <Nop>
 
+" fix syntax highlighting
 
 " nnoremap n ]s
 " nnoremap N [s
 " nnoremap z z=
 
-"remove auto comment after comment line
+" remove auto comment after comment line
 set formatoptions-=or
 set formatoptions-=ro
+set formatoptions-=c
 
 set noerrorbells
 set vb t_vb=
@@ -39,6 +48,7 @@ set incsearch
 set nowrap
 set scrolloff=1
 nnoremap <Space> @q
+nnoremap <Tab> @w
 " nnoremap / H/
 " remap 0 to be faster
 nnoremap 0 hhll0
@@ -74,10 +84,12 @@ augroup comments
     autocmd FileType text setlocal commentstring=#\ %s
     autocmd FileType text syntax off
     autocmd FileType tex setlocal commentstring=%\ %s
+    autocmd FileType bib setlocal commentstring=%\ %s
     autocmd FileType sh setlocal commentstring=#\ %s
     autocmd FileType vim setlocal commentstring=\"\ %s
     autocmd FileType conf setlocal commentstring=#\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
+    autocmd FileType arduino setlocal commentstring=//\ %s
     autocmd FileType c setlocal commentstring=//\ %s
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType stack setlocal commentstring=#\ %s
@@ -86,12 +98,22 @@ augroup END
 
 augroup TEX
     " shorten syntax highlight (good for long lines in latex)
-    " autocmd FileType tex setlocal synmaxcol=2000
+    autocmd FileType tex setlocal synmaxcol=2000
+    au FileType tex set autoindent
+    au BufRead,BufNewFile *.tex set filetype=tex
+augroup END
+
+augroup BIB
+    " shorten syntax highlight (good for long lines in latex)
+    autocmd FileType btex setlocal synmaxcol=2000
+    au FileType bib set autoindent
+    au BufRead,BufNewFile *.bib set filetype=bib
 augroup END
 
 augroup STACK 
     autocmd!
     " autocmd FileType python let b:pythonThreePrintOn=1
+    au FileType *stack set autoindent
     autocmd BufRead,BufNewFile *.stack setfiletype stack
     autocmd BufRead,BufNewFile *.stack set nospell
     " indentation (use tabs):
@@ -104,7 +126,9 @@ augroup PYTHON
     " autocmd FileType python let b:pythonThreePrintOn=1
     autocmd BufRead,BufNewFile *.py3 setfiletype python
     autocmd InsertLeave *py3 call PythonThreePrint() 
+    au FileType python set autoindent
 augroup END
+
 
 fun! PythonThreePrint()
     " update print statement to python 3
@@ -130,6 +154,13 @@ endfun
 " ####################### python 3 print
 
 
+" From help:
+func Eatchar(pat)
+  let c = nr2char(getchar(0))
+  return (c =~ a:pat) ? '' : c
+endfunc
+" How to use example:
+" iabbr <silent> if if ()<Left><C-R>=Eatchar('\s')<CR>
 
 
 "autocommands
@@ -150,7 +181,7 @@ augroup testgroup
     autocmd FileType tex setlocal wrap
     autocmd FileType tex setlocal spell
     autocmd FileType tex iabbrev 1pic \includegraphics[width=1\textwidth]{}<left>
-    autocmd FileType tex iabbrev 1fig \begin{figure}[htb]<cr>\begin{center}<cr>\includegraphics[width=0.8\linewidth]{figures/}<cr>\end{center}<cr>\vspace{-.4cm}<cr>\caption{}<cr>\label{fig:}<cr>\end{figure}<cr>
+    " autocmd FileType tex iabbrev 1fig \begin{figure}[htb]<cr>\begin{center}<cr>\includegraphics[width=0.8\linewidth]{figures/}<cr>\end{center}<cr>\vspace{-.4cm}<cr>\caption{}<cr>\label{fig:}<cr>\end{figure}<cr>
     autocmd FileType tex iabbrev 1fig2 \begin{figure}[htp]<cr>\centering<cr>\begin{overpic}[width=0.449\textwidth]{figures/}\put(85,-0.1){\textrm{(a)}}\end{overpic}<cr>\begin{overpic}[width=0.449\textwidth]{figures/}\put(85,-0.1){\textrm{(b)}}\end{overpic}<cr>\caption{}<cr>\label{fig:}<cr>\end{figure}<cr>
     autocmd FileType tex iabbrev 1table \begin{tabular}{l r r r r r}\toprule<cr><cr>\bottomrule\end{tabular} %remember cline{1-2}<esc><up>i<space>
     autocmd FileType tex iabbrev 1item \begin{itemize}<cr>    \item<cr>\end{itemize}<esc><<<up>A
@@ -160,22 +191,37 @@ augroup testgroup
     autocmd FileType tex iabbrev 1col \begin{columns}[T]<cr>\column{.5\textwidth}<cr>\column{.5\textwidth}<cr>\end{columns} <esc><up>
     autocmd FileType tex iabbrev 1col3 \begin{columns}[T]<cr>\column{.35\textwidth}<cr>\column{.35\textwidth}<cr>\column{.35\textwidth}<cr>\end{columns} <esc><up>
     autocmd FileType tex iabbrev 1col4 \begin{columns}[T]<cr>\column{.25\textwidth}<cr>\column{.25\textwidth}<cr>\column{.25\textwidth}<cr>\column{.25\textwidth}<cr>\end{columns} <esc><up>
+    autocmd FileType tex iabbrev 1fig \afterpage{<cr>\begin{figure}[h!]<cr>\captionsetup[subfigure]{position=b}<cr>\centering<cr>\subfloat[][]{{\includegraphics[width=0.5\textwidth]{}}}<cr>\caption{}<cr>\label{fig:}<cr>\end{figure}<cr>\clearpage<cr>}<esc><up>
+    autocmd FileType tex iabbrev 1tab \begin{table}[htp]<cr>\begin{center}<cr>\begin{tabular}{l l l l}<cr>\toprule<cr>\midrule<cr>\bottomrule<cr>\end{tabular}<cr>\caption{}<cr>\label{tab:}<cr>\end{center}<cr>\end{table}<esc><up>
+    autocmd FileType tex iabbrev 1feyn \feynmandiagram [medium,baseline=(v.base),horizontal=a to b] {a[particle=\(\mu\)] --[charged boson,momentum=k] b[particle=\(\nu\)],};
+    autocmd FileType tex iabbrev 1feynci \feynmandiagram [medium,baseline=(v.base),horizontal=a to c] {{a[]} --[] v --[] b[], c[] --[] v --[] d[] }; 
     autocmd FileType tex iabbrev 1turn \begin{turn}{45}<cr>\end{turn} <esc><up>
+    autocmd FileType tex iabbrev 1eqn \begin{equation}\begin{split}<CR>\end{split}\end{equation} <esc><up>
+    autocmd FileType tex iabbrev 1align \begin{flalign}\label{eqn:}<cr>& \text{}\notag\\<cr>\end{flalign}<esc><up>
+    " autocmd FileType tex iabbrev 1align \begin{align*}<cr>\end{align*}
+    autocmd FileType tex iabbrev 1cent \begin{center}<CR>\end{center} <esc><up>
+    autocmd FileType tex iabbrev 1matrix \begin{pmatrix}\end{pmatrix}<esc>F\<left>
     autocmd FileType tex iabbrev 1resize \resizebox{0.9\textheight}{!}{\vbox{%start of resize box<cr>}}%end of resize box <esc><up>$ci
     autocmd FileType tex iabbrev 1scale \scalebox{0.8}{\begin{minipage}{1.20\textwidth} % start of scalebox <cr>\end{minipage}} % stop of scalebox
-    autocmd FileType tex iabbrev 1align \begin{align*}<cr>\end{align*}
-    autocmd FileType tex iabbrev 1cb {\color{blue}}<esc>i
-    autocmd FileType tex iabbrev 1ck {\color{gray}}<esc>i
-    autocmd FileType tex iabbrev 1cg {\color{green}}<esc>i
-    autocmd FileType tex iabbrev 1cr {\color{red}}<esc>i
-    autocmd FileType tex iabbrev 1cy {\color{yellow}}<esc>i
-    autocmd FileType tex iabbrev 1co {\color{orange}}<esc>i
-    autocmd FileType tex iabbrev 1bf \textbf{}<esc>i
+    autocmd FileType tex iabbrev 1cb \blue{}<Left><C-R>=Eatchar('\s')<CR>
+    autocmd FileType tex iabbrev 1ck \gray{}<Left><C-R>=Eatchar('\s')<CR>
+    autocmd FileType tex iabbrev 1cg \green{}<Left><C-R>=Eatchar('\s')<CR>
+    autocmd FileType tex iabbrev 1cr \red{}<Left><C-R>=Eatchar('\s')<CR>
+    autocmd FileType tex iabbrev 1cy \yellow{}<Left><C-R>=Eatchar('\s')<CR>
+    autocmd FileType tex iabbrev 1co \orange{}<Left><C-R>=Eatchar('\s')<CR>
+    " autocmd FileType tex iabbrev 1cb {\color{blue}}<esc>i
+    " autocmd FileType tex iabbrev 1ck {\color{gray}}<esc>i
+    " autocmd FileType tex iabbrev 1cg {\color{green}}<esc>i
+    " autocmd FileType tex iabbrev 1cr {\color{red}}<esc>i
+    " autocmd FileType tex iabbrev 1cy {\color{yellow}}<esc>i
+    " autocmd FileType tex iabbrev 1co {\color{orange}}<esc>i
+    autocmd FileType tex iabbrev 1bf \textbf{}<Left><C-R>=Eatchar('\s')<CR>
+    autocmd FileType tex iabbrev 1emph \emph{}<Left><C-R>=Eatchar('\s')<CR>
     autocmd FileType tex iabbrev fb1 $fb-1$
     autocmd FileType tex iabbrev 1eta $\|\eta\|$<left>
     autocmd FileType tex iabbrev 1v \vspace{em}<left><left><left>
     " autocmd FileType tex iabbrev 1h \noindent\rule{cm}{0.4pt}<left><left><left><left><left><left><left><left><left><left>
-    autocmd FileType tex iabbrev 1draw % ##################### <cr>% Macros: 1trect, 1tcirc, 1tnode, 1tarrow, 1tstar, 1tpath <cr>% Bracket options: [red, rotate=90, fill=green, rounded corners=2pt] <cr>% Draw an arrow between nodes: \draw [->] (A) edge (B) <cr>% Box around image: \draw[thick] (page cs:-1,-1) rectangle (page cs:1,1); <cr>\begin{tikzpicture}[remember picture,overlay] <cr>\end{tikzpicture}<esc>$F\i
+    autocmd FileType tex iabbrev 1draw % ##################### <cr>% Macros: 1trect, 1tcirc, 1tnode, 1tarrow, 1tstar, 1tpath <cr>% Bracket options: [red, rotate=90, fill=green, rounded corners=2pt] <cr>% Draw an arrow between nodes: \draw [->] (A) edge (B) <cr>% Box around image: \draw[thick] (page cs:-1,-1) rectangle (page cs:1,1); <cr>\begin{tikzpicture}[remember picture,overlay] <cr>%\draw[style=help lines] (0,0) grid (3,2); <cr>\end{tikzpicture}<esc>$F\i
     autocmd FileType tex iabbrev 1trect \draw[white,fill=white] (page cs: 0,0 )rectangle(4cm,3.7cm);
     autocmd FileType tex iabbrev 1tcirc \draw[red,ultra thick] (page cs: 0,0 )circle(0.3cm);
     autocmd FileType tex iabbrev 1tpath \draw[->, red,ultra thick] (A) edge (B);
@@ -264,16 +310,20 @@ set cursorline
 " colorscheme gruvbox
 " colorscheme orange-moon
 
-" ###############################
-" tab/indent behavior
+" " ###############################
+" " tab/indent behavior
 set ts=4 sts=4 sw=4 et
-" " fix indentation
-" set nosmartindent
-" set cinkeys-=0#
-" set indentkeys-=0#
+" " " fix indentation
+" " set nosmartindent
+" " set cinkeys-=0#
+" " set indentkeys-=0#
 
 
-filetype indent on
+" filetype plugin indent on
+
+" set indentexpr=""
+" set indentkeys=""
+
 " set nosmartindent
 " set smartindent
 " set cindent 
@@ -384,5 +434,28 @@ augroup COLOR
     autocmd BufRead,BufNewFile * colo darkRotationCurve
 augroup END
 
-set indentexpr=""
-set indentkeys=""
+
+" " copy to different buffer
+" nnoremap c "cc
+" vnoremap c "cc
+" nnoremap C "cC
+" vnoremap C "cC
+" nnoremap d "dd
+" vnoremap d "dd  
+" nnoremap D "dD
+" vnoremap D "dD
+" nnoremap x "xx
+" vnoremap x "xx
+" nnoremap X "xX
+" vnoremap X "xX
+
+" " Insert itemize on new line
+" function CR()
+"     if searchpair('\\begin{itemize}', '', '\\end{itemize}', '')
+"         return "\r\\item"
+"     endif
+"     return "\r"
+" endfunction
+" inoremap <expr><buffer> <CR> CR()
+
+

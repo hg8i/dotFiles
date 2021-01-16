@@ -12,8 +12,9 @@ sudo systemctl start ntpd.service
 sudo systemctl start acpid.service
 # 
 #start widgits
-nm-applet &
+# nm-applet &
 redshift-gtk &
+dunst &
 # /home/prime/scripts/mountManager/mountmanager &
 # 
 # # I want mount manager to get added last, so give the others some time to load
@@ -49,6 +50,9 @@ xmodmap ~/.Xmodmap_hhkb
 xcape -e 'Control_L=Escape'
 #control for middle mouse button
 xbindkeys
+
+# xcompmgr -c &
+
 # 
 # #mark last window with "_last" id. Useful for my workspace command
 

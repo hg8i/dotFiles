@@ -26,8 +26,7 @@ alias oo="open; fg"
 # alias beep="echo -ne '\007'"
 alias gcd=". ~/scripts/gcd.sh"
 alias cd="cd -P"
-alias cal="cal 2019"
-alias cal9="/usr/bin/cal 2019"
+alias cal="~/dev/isoplan/isoplan.py"
 alias vifm="vifmLaunch"
 alias pdflatexd="pdflatex -draftmode"
 #alias hg="history -a && hg.py"
@@ -44,6 +43,7 @@ alias p="ping www.google.com"
 alias bell="echo $'\a'"
 alias targa="tar -zxaf"
 alias targz="tar -xvzf"
+alias tarxz="tar -xf"
 alias root="root -l"
 alias b="cd ../"
 alias bb="cd ../../"
@@ -54,7 +54,7 @@ alias cpf=". copyAndFollow"
 alias mvf=". moveAndFollow"
 # alias date='date "+DATE: %m/%d/%y%nTIME: %H:%M:%S"'
 alias def="sdcv"
-# alias grep="grep -i --color=always" #removed because atlas software uses this as dependance :(
+alias grep="grep -i --color=always" #removed because atlas software uses this as dependance :(
 alias bashrc="source ~/.bashrc"
 alias pic1="gnome-screenshot -a -f $(mktemp -u /tmp/gscreenshot.XXXX.png)"
 # alias pic="gnome-screenshot -a -f"
@@ -63,7 +63,9 @@ alias pic1="gnome-screenshot -a -f $(mktemp -u /tmp/gscreenshot.XXXX.png)"
 complete -f -X '!*.pdf' evince
 complete -f -X '!*.pdf' zathura
 complete -f -X '!*.tex' pdflatex
+complete -f -X '!*.tex' lualatex
 complete -f -X '!*.tex' slidesLatex
+complete -f -X '!*.ods' libreoffice
 complete -f -X '!*.py' py
 
 # ssh shortcuts
@@ -104,3 +106,6 @@ alias zathura="zathura -c ~/dotFiles"
 alias git_store_credentials="git config credential.helper store"
 # save git shor remote origin
 alias git_remote_show_origin="git remote show origin"
+
+# kill jobs in terminal matching pattern
+alias killpy='kill -9 $(ps | grep python2 | cut -d " " -f2)'

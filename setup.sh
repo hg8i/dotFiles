@@ -12,3 +12,5 @@ unlink ~/.Xmodmap_t470s; ln -s dotFiles/.Xmodmap_t470s ../.Xmodmap_t470s
 unlink ~/.Xmodmap_hhkb; ln -s dotFiles/.Xmodmap_hhkb ../.Xmodmap_hhkb
 
 unlink ~/redshift.conf; ln -s dotFiles/redshift.conf ../redshift.conf
+
+unlink ~/.i3; ln -s dotFiles/.i3 ../.i3
