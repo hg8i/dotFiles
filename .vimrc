@@ -1,6 +1,7 @@
 scriptencoding utf-8
 syntax on
 
+set nrformats-=octal
 
 set noswapfile
 
@@ -95,6 +96,9 @@ augroup comments
     autocmd FileType stack setlocal commentstring=#\ %s
     autocmd FileType xml setlocal commentstring=<!--\ %s\ -->
 augroup END
+" Comment single line
+noremap <C-_> :Commentary<cr>
+
 
 augroup TEX
     " shorten syntax highlight (good for long lines in latex)
