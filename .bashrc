@@ -21,6 +21,9 @@ export STARDICT_DATA_DIR="~/.stardict-1"
 # Copy current dir. Not going to use dir command any time soon
 alias dir="echo Clipping path:;path; pwd | tr \"\n\" \"/\" | rev | cut -z -d \"/\" -f2 | rev | xclip"
 
+alias mem='free -m | awk '\''NR==2{printf "%.2f%%\n", $3*100/$2 }'\'''
+
+
 alias o="open"
 alias oo="open; fg"
 # alias beep="echo -ne '\007'"
@@ -67,22 +70,15 @@ complete -f -X '!*.tex' lualatex
 complete -f -X '!*.tex' slidesLatex
 complete -f -X '!*.ods' libreoffice
 complete -f -X '!*.py' py
+# complete -f -X '!*.txt' -X '!*.tex' -X '!*.csv'  vim
 
-# ssh shortcuts
-alias t3="ssh -X -Y -i ~/.ssh/t3pers19 aaronsw@t3pers19.physics.lsa.umich.edu"
-alias lxplus="ssh -Y aawhite@lxplus.cern.ch"
-alias umt1="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int01.physics.lsa.umich.edu"
-alias umt2="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int02.physics.lsa.umich.edu"
-alias umt3="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int03.physics.lsa.umich.edu"
-alias umt4="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int04.physics.lsa.umich.edu"
-alias umt5="ssh -X -Y -i ~/.ssh/umt aaronsw@umt3int05.physics.lsa.umich.edu"
-alias hg8i="ssh -i ~/.ssh/hg8i -p 21098 phuwus@server38.web-hosting.com"
-alias sshfs_hg8i="sshfs -p 21098 phuwus@server38.web-hosting.com:/home/phuwus/public_html ~/sshfs/hg8i -o IdentityFile=~/.ssh/hg8i; cd ~/sshfs/hg8i"
 
 # modify path 
 PATH="~/scripts:${PATH}"
 PATH="~/scripts/functionButtons:${PATH}"
 PATH="~/scripts/xStateToggle:${PATH}"
+
+PATH="~/.local/bin:${PATH}"
 
 #unfreeze ctrl-s
 stty -ixon
@@ -109,3 +105,9 @@ alias git_remote_show_origin="git remote show origin"
 
 # kill jobs in terminal matching pattern
 alias killpy='kill -9 $(ps | grep python2 | cut -d " " -f2)'
+
+alias rl="cd `pwd`"
+export EDITOR=vim
+
+PROMPT_COMMAND='history -a'
+

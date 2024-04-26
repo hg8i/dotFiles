@@ -17,13 +17,15 @@
 ! URxvt.letterSpace: -3
 ! # Inconsolata
 
+! check fc-list
 ! old:
 ! URxvt.font: xft:Inconsolata:size=9:antialias=true
-URxvt*font: xft:Monospace:size=10:antialias=true
+! URxvt*font: xft:Monospace:size=20:antialias=true
 ! URxvt*font: xft:FreeMono:size=10:antialias=true
 ! URxvt*font: xft:Unifont:size=10:antialias=true
+URxvt*font: xft:LiberationMono:size=12:antialias=true
 
-URxvt*cutchars:        *:,/={}[]()
+URxvt*cutchars:        *:,/={}[]()@
 
 URxvt*scrollBar:       false
 rxvt.vim-scrollback-bg:16
@@ -52,5 +54,19 @@ Xft.hintstyle: hintslight
 Xft.rgba: rgb
 ! Xft.dpi: 96
 
+URxvt.perl-ext-common:-confirm-paste
 
+
+URxvt*termName: rxvt-unicode-256color                                                                    
+
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
+
+! fix issue with prompt scrolled to middle of new terminal
+urxvt*geometry:                50x60
+
+
+! freefont
+Xft*faceName: DejaVu Sans Mono:size=10:antialias=true
 

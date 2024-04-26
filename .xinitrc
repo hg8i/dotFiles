@@ -12,8 +12,8 @@ sudo systemctl start ntpd.service
 sudo systemctl start acpid.service
 # 
 #start widgits
-# nm-applet &
-redshift-gtk &
+nm-applet &
+#redshift-gtk &
 dunst &
 # /home/prime/scripts/mountManager/mountmanager &
 # 
@@ -52,6 +52,9 @@ xcape -e 'Control_L=Escape'
 xbindkeys
 
 # xcompmgr -c &
+#
+sudo chmod 777 /sys/class/backlight/intel_backlight/brightness
+echo 6818 > /sys/class/backlight/intel_backlight/brightness
 
 # 
 # #mark last window with "_last" id. Useful for my workspace command
